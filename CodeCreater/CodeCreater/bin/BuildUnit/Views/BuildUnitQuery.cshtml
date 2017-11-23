@@ -1,0 +1,50 @@
+@{
+    PlatformContext.ApplicationScreen.Title = "台帐管理";
+    Layout = "~/Views/Shared/KLayouts/_GridViewLayout.cshtml";
+}
+<style>
+    .inline-label1 {
+        width: 45%;
+    }
+
+    .block-label1 {
+        width: 94%;
+    }
+
+    .k-edit-form-container .block-label1 .label1 {
+        width: 14%;
+    }
+
+    .ko-UploadPic-file {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .ko-upload-filelist {
+        margin-top: 10px;
+    }
+
+    .ko-upload-container .k-upload-status {
+        display: none;
+    }
+
+    .ko-upload-container .k-header {
+        background-color: transparent;
+        border: none;
+    }
+
+    .ko-upload-container .k-dropzone {
+        padding: 0 0 0 0;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        if ($("#BID").val().length == 0) {
+            $("#BID").val("00000000-0000-0000-0000-000000000000");
+        }
+    })
+</script>
+@Html.AjaxEditorForm(width: 800, isDialog: false)
+        }
+    }
+}

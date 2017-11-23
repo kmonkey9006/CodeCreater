@@ -1,0 +1,10 @@
+E:\work\CodeCreater\CodeCreater\CodeCreater\bin\Debug\CodeCreater.exe.config
+E:\work\CodeCreater\CodeCreater\CodeCreater\obj\Debug\CodeCreater.Form1.resources
+E:\work\CodeCreater\CodeCreater\CodeCreater\obj\Debug\CodeCreater.login.resources
+E:\work\CodeCreater\CodeCreater\CodeCreater\obj\Debug\CodeCreater.Properties.Resources.resources
+E:\work\CodeCreater\CodeCreater\CodeCreater\obj\Debug\CodeCreater.csproj.GenerateResource.Cache
+E:\work\CodeCreater\CodeCreater\CodeCreater\bin\Debug\CodeCreater.exe
+E:\work\CodeCreater\CodeCreater\CodeCreater\bin\Debug\CodeCreater.pdb
+E:\work\CodeCreater\CodeCreater\CodeCreater\obj\Debug\CodeCreater.exe
+E:\work\CodeCreater\CodeCreater\CodeCreater\obj\Debug\CodeCreater.pdb
+E:\work\CodeCreater\CodeCreater\CodeCreater\obj\Debug\CodeCreater.csprojResolveAssemblyReference.cache
