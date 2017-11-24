@@ -72,7 +72,7 @@ namespace CodeCreater
                             sb.AppendLine();
                         }
                         if (dr["DataType"].ToString() == "datetime")
-                            sb.AppendLine("        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = \"{{0:yyyy-MM-dd}}\")]");
+                            sb.AppendLine("        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = \"{0:yyyy-MM-dd}\")]");
                         string da = dr["DefaultAttribute"].ToString();
                         if (!string.IsNullOrEmpty(da))
                         {
