@@ -46,13 +46,14 @@ namespace CodeCreater
                         sb.AppendFormat("        [DisplayName(\"{0}\")]", dr["DisplayName"].ToString());
                         sb.AppendLine();
                         string l = dr["Length"].ToString();
-                        if (dr["IsNull"].ToString().ToLower() == "true")
+                        if (dr["IsNull"].ToString().ToLower() == "false")
                         {
 
                             sb.AppendLine("        [Required(ErrorMessage = \"{0}不能为空\")] ");
-                            sb.AppendLine("        [StringLength(4000,MinimumLength = 1, ErrorMessage =\"{0}长度在{2}-{1}之间\")]");
+                            sb.AppendFormat("        [StringLength({0},MinimumLength = 1, ErrorMessage =\"{{0}}长度在{{2}}-{{1}}之间\")]",l);
+                            sb.AppendLine();
                         }
-                        else if (dr["IsNull"].ToString().ToLower() != "true" && dr["DataType"].ToString() != "uniqueidentifier")
+                        else if (dr["IsNull"].ToString().ToLower() != "false" && dr["DataType"].ToString() != "uniqueidentifier")
                         {
                             sb.AppendFormat("        [StringLength({0}, ErrorMessage = \"{1}长度不可超出{0}\")]", l, "{0}");
                             sb.AppendLine();

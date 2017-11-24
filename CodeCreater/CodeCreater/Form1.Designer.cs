@@ -33,18 +33,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefaultAttribute = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefaultVal = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Regular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsQuery = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.HiddenInput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,6 +50,18 @@
             this.单表生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.模版生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.批量生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefaultAttribute = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefaultVal = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Regular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsQuery = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HiddenInput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -136,93 +136,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1232, 659);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "名称";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // DataType
-            // 
-            this.DataType.DataPropertyName = "DataType";
-            this.DataType.HeaderText = "类型";
-            this.DataType.Name = "DataType";
-            this.DataType.ReadOnly = true;
-            // 
-            // length
-            // 
-            this.length.DataPropertyName = "Length";
-            this.length.HeaderText = "长度";
-            this.length.Name = "length";
-            this.length.ReadOnly = true;
-            // 
-            // IsNull
-            // 
-            this.IsNull.DataPropertyName = "IsNull";
-            this.IsNull.HeaderText = "是否非空";
-            this.IsNull.Name = "IsNull";
-            this.IsNull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsNull.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // DisplayName
-            // 
-            this.DisplayName.DataPropertyName = "DisplayName";
-            this.DisplayName.HeaderText = "显示名称";
-            this.DisplayName.Name = "DisplayName";
-            // 
-            // DefaultAttribute
-            // 
-            this.DefaultAttribute.DataPropertyName = "DefaultAttribute";
-            this.DefaultAttribute.HeaderText = "默认特性";
-            this.DefaultAttribute.Name = "DefaultAttribute";
-            this.DefaultAttribute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // SelectList
-            // 
-            this.SelectList.DataPropertyName = "SelectList";
-            this.SelectList.HeaderText = "自定义关联地址";
-            this.SelectList.Name = "SelectList";
-            // 
-            // SelectData
-            // 
-            this.SelectData.DataPropertyName = "SelectData";
-            this.SelectData.HeaderText = "关联参数";
-            this.SelectData.Name = "SelectData";
-            // 
-            // DefaultVal
-            // 
-            this.DefaultVal.DataPropertyName = "DefaultVal";
-            this.DefaultVal.HeaderText = "默认值";
-            this.DefaultVal.Items.AddRange(new object[] {
-            "当前时间",
-            "登录人"});
-            this.DefaultVal.Name = "DefaultVal";
-            this.DefaultVal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DefaultVal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Regular
-            // 
-            this.Regular.DataPropertyName = "Regular";
-            this.Regular.HeaderText = "正则表达式";
-            this.Regular.Name = "Regular";
-            // 
-            // IsQuery
-            // 
-            this.IsQuery.DataPropertyName = "IsQuery";
-            this.IsQuery.HeaderText = "是否为查询条件";
-            this.IsQuery.Name = "IsQuery";
-            this.IsQuery.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsQuery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // HiddenInput
-            // 
-            this.HiddenInput.DataPropertyName = "HiddenInput";
-            this.HiddenInput.HeaderText = "是否显示";
-            this.HiddenInput.Name = "HiddenInput";
-            this.HiddenInput.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HiddenInput.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // groupBox3
             // 
@@ -383,6 +296,99 @@
             this.批量生成ToolStripMenuItem.Text = "批量生成";
             this.批量生成ToolStripMenuItem.Click += new System.EventHandler(this.批量生成ToolStripMenuItem_Click);
             // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "名称";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // DataType
+            // 
+            this.DataType.DataPropertyName = "DataType";
+            this.DataType.HeaderText = "类型";
+            this.DataType.Name = "DataType";
+            this.DataType.ReadOnly = true;
+            // 
+            // length
+            // 
+            this.length.DataPropertyName = "Length";
+            this.length.HeaderText = "长度";
+            this.length.Name = "length";
+            this.length.ReadOnly = true;
+            // 
+            // IsNull
+            // 
+            this.IsNull.DataPropertyName = "IsNull";
+            this.IsNull.FalseValue = "false";
+            this.IsNull.HeaderText = "是否非空";
+            this.IsNull.Name = "IsNull";
+            this.IsNull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsNull.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsNull.TrueValue = "true";
+            // 
+            // DisplayName
+            // 
+            this.DisplayName.DataPropertyName = "DisplayName";
+            this.DisplayName.HeaderText = "显示名称";
+            this.DisplayName.Name = "DisplayName";
+            // 
+            // DefaultAttribute
+            // 
+            this.DefaultAttribute.DataPropertyName = "DefaultAttribute";
+            this.DefaultAttribute.HeaderText = "默认特性";
+            this.DefaultAttribute.Name = "DefaultAttribute";
+            this.DefaultAttribute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // SelectList
+            // 
+            this.SelectList.DataPropertyName = "SelectList";
+            this.SelectList.HeaderText = "自定义关联地址";
+            this.SelectList.Name = "SelectList";
+            // 
+            // SelectData
+            // 
+            this.SelectData.DataPropertyName = "SelectData";
+            this.SelectData.HeaderText = "关联参数";
+            this.SelectData.Name = "SelectData";
+            // 
+            // DefaultVal
+            // 
+            this.DefaultVal.DataPropertyName = "DefaultVal";
+            this.DefaultVal.HeaderText = "默认值";
+            this.DefaultVal.Items.AddRange(new object[] {
+            "当前时间",
+            "登录人"});
+            this.DefaultVal.Name = "DefaultVal";
+            this.DefaultVal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DefaultVal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Regular
+            // 
+            this.Regular.DataPropertyName = "Regular";
+            this.Regular.HeaderText = "正则表达式";
+            this.Regular.Name = "Regular";
+            // 
+            // IsQuery
+            // 
+            this.IsQuery.DataPropertyName = "IsQuery";
+            this.IsQuery.FalseValue = "false";
+            this.IsQuery.HeaderText = "是否为查询条件";
+            this.IsQuery.Name = "IsQuery";
+            this.IsQuery.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsQuery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsQuery.TrueValue = "true";
+            // 
+            // HiddenInput
+            // 
+            this.HiddenInput.DataPropertyName = "HiddenInput";
+            this.HiddenInput.FalseValue = "false";
+            this.HiddenInput.HeaderText = "是否显示";
+            this.HiddenInput.Name = "HiddenInput";
+            this.HiddenInput.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HiddenInput.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HiddenInput.TrueValue = "true";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -426,6 +432,12 @@
         private System.Windows.Forms.TextBox txt_Namespace;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_dataContext;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 生成ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 单表生成ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 模版生成ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 批量生成ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataType;
         private System.Windows.Forms.DataGridViewTextBoxColumn length;
@@ -438,12 +450,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Regular;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsQuery;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HiddenInput;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 生成ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 单表生成ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 模版生成ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 批量生成ToolStripMenuItem;
     }
 }
 
