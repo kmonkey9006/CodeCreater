@@ -41,17 +41,16 @@ namespace CodeCreater
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        string dataName = dr["name"].ToString();
+                        string name = dr["name"].ToString();
                         sb.AppendLine();
                         sb.AppendFormat("        [DisplayName(\"{0}\")]", dr["DisplayName"].ToString());
                         sb.AppendLine();
                         string l = dr["Length"].ToString();
                         if (dr["IsNull"].ToString().ToLower() == "true")
                         {
-                            sb.AppendLine();
+
                             sb.AppendLine("        [Required(ErrorMessage = \"{0}不能为空\")] ");
                             sb.AppendLine("        [StringLength(4000,MinimumLength = 1, ErrorMessage =\"{0}长度在{2}-{1}之间\")]");
-                            sb.AppendLine();
                         }
                         else if (dr["IsNull"].ToString().ToLower() != "true" && dr["DataType"].ToString() != "uniqueidentifier")
                         {
@@ -60,15 +59,50 @@ namespace CodeCreater
                         }
                         if (dr["HiddenInput"].ToString().ToLower() != "true" || dt.Rows.IndexOf(dr) == 0)
                             sb.AppendLine("        [HiddenInput(DisplayValue=false)]");
-                        if (!string.IsNullOrEmpty(dr["SelectList"].ToString()) && string.IsNullOrEmpty(dr["SelectData"].ToString()))
+
+                        if (name == "LineID")
                         {
-                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post,DataValueField = \"{1}\",DataTextField = \"Name\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(), dataName);
+                            sb.AppendLine("        [SelectList(\"/Inspect/GetLine?all=0\",");
+                            sb.AppendLine("             HttpVerbs.Post,");
+                            sb.AppendLine("             DataValueField = \"LineID\",");
+                            sb.AppendLine("             DataTextField = \"Name\",");
+                            sb.AppendLine("             DataType = \"DropDownList\")]");
+                        }
+                        else if (name == "SegmentID")
+                        {
+                            sb.AppendLine("        [SelectList(\"/Inspect/GetSegment?all=0\",");
+                            sb.AppendLine("             HttpVerbs.Post,");
+                            sb.AppendLine("             CascadeFrom = \"LineID\",");
+                            sb.AppendLine("             DataValueField = \"SegmentID\",");
+                            sb.AppendLine("             DataTextField = \"Name\",");
+                            sb.AppendFormat("             Data = {0}\"function(){{", "@");
+                            sb.AppendLine();
+                            sb.AppendLine("                        return { lineId: $(\"\"#LineID\"\").val() };");
+                            sb.AppendLine("                    }\",");
+                            sb.AppendLine("             DataType = \"DropDownList\")]");
+                        }
+                        else if (name == "SiteID")
+                        {
+                            sb.AppendLine("        [SelectList(\"/Inspect/GetSegment?all=0\",");
+                            sb.AppendLine("             HttpVerbs.Post,");
+                            sb.AppendLine("             CascadeFrom = \"SegmentID\",");
+                            sb.AppendLine("             DataValueField = \"SiteID\",");
+                            sb.AppendLine("             DataTextField = \"Name\",");
+                            sb.AppendFormat("             Data = {0}\"function(){{", "@");
+                            sb.AppendLine();
+                            sb.AppendLine("                        return { segmentID: $(\"\"#SegmentID\"\").val() };");
+                            sb.AppendLine("                    }\",");
+                            sb.AppendLine("             DataType = \"DropDownList\")]");
+                        }
+                        else if (!string.IsNullOrEmpty(dr["SelectList"].ToString()) && string.IsNullOrEmpty(dr["SelectData"].ToString()))
+                        {
+                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post,DataValueField = \"{1}\",DataTextField = \"Name\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(), name);
                             sb.AppendLine();
                         }
-                        if (!string.IsNullOrEmpty(dr["SelectData"].ToString()) && !string.IsNullOrEmpty(dr["SelectList"].ToString()))
+                        else if (!string.IsNullOrEmpty(dr["SelectData"].ToString()) && !string.IsNullOrEmpty(dr["SelectList"].ToString()))
                         {
                             string[] SelectData = dr["SelectData"].ToString().Split(':');
-                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post,DataValueField = \"{1}\",DataTextField = \"Name\",Data ={2}\"function(){{return {{ {3}: $(\"\"#{4}\"\").val() }}; }}\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(), dataName, "@", SelectData[0], SelectData[1]);
+                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post, CascadeFrom = \"{4}\"  DataValueField = \"{1}\",DataTextField = \"Name\",Data ={2}\"function(){{return {{ {3}: $(\"\"#{4}\"\").val() }}; }}\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(), name, "@", SelectData[0], SelectData[1]);
                             sb.AppendLine();
                         }
                         if (dr["DataType"].ToString() == "datetime")
@@ -91,7 +125,8 @@ namespace CodeCreater
                             sb.AppendFormat("        [RegularExpression({0}\"{1}\")]", "@", regular);
                             sb.AppendLine();
                         }
-                        sb.AppendFormat("        public {0} {1} {{ get; set; }}", CreateHelper.GetCsType(dr["DataType"].ToString()), dataName);
+                        sb.AppendFormat("        public {0} {1} {{ get; set; }}", CreateHelper.GetCsType(dr["DataType"].ToString()), name);
+                        sb.AppendLine();
                     }
                 }
                 sb.AppendLine("        }");

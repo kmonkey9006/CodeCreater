@@ -56,12 +56,45 @@ namespace CodeCreater
                     vnode.Text = l;
                     node1.Nodes.Add(vnode);
                 });
+                treeView1.CheckBoxes = true;
             }
             catch (Exception ex)
             { }
 
 
 
+        }
+
+
+
+        ///// <summary>  
+        ///// 获得选中节点  
+        ///// </summary>  
+        ///// <param name="sender"></param>  
+        ///// <param name="e"></param>  
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    List<TreeNode> listNodes = new List<TreeNode>();
+        //    foreach (TreeNode node in treeView1.Nodes)
+        //    {
+        //        FindCheckNode(node, listNodes);
+        //    }
+        //    this.Close();
+        //}
+
+        private void FindCheckNode(TreeNode node, List<TreeNode> listNodes)
+        {
+            if (node.Checked)
+            {
+                listNodes.Add(node);
+                //Form1.str += node.Text+",";  
+                //  Form1.str += node.Tag + ",";
+
+            }
+            foreach (TreeNode childnode in node.Nodes)
+            {
+                FindCheckNode(childnode, listNodes);
+            }
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -171,6 +204,83 @@ namespace CodeCreater
 
             }
         }
+
+        private void 单表生成ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt = (DataTable)this.dataGridView1.DataSource;
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                dt.TableName = tabName;
+                jsonHelper.WriteFile(CreateHelper.getPath(tabName), tabName + ".js", jsonHelper.ToJson(dt, true));
+            }
+            if (CreateFunc(dt))
+                MessageBox.Show("生成成功！！！！");
+            else
+                MessageBox.Show("生成失败！！！！");
+        }
+
+        private void 模版生成ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //初始化一个OpenFileDialog类
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "(*.js)|*.js";
+            //判断用户是否正确的选择了文件
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = fileDialog.FileName;
+                string jsonStr = jsonHelper.ReadFile(path);
+                DataTable dt = jsonHelper.JsonToDataSet(jsonStr).Tables[0];
+                this.dataGridView1.DataSource = dt;//数据源  
+                this.dataGridView1.AutoGenerateColumns = false;//不自动  
+
+            }
+        }
+
+        private void 批量生成ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<TreeNode> listNodes = new List<TreeNode>();
+            foreach (TreeNode node in treeView1.Nodes)
+            {
+                if (node.Text == "表")
+                {
+                    foreach (TreeNode childnode in node.Nodes)
+                    {
+                        if (childnode.Checked)
+                        {
+
+                            tabName = childnode.Text;
+                            DataTable dt = CreateHelper.GetSyscolumns(sql_connectstring.Replace("Provider=sqloledb;", ""), childnode.Text);
+                            dt.TableName = tabName;
+                            CreateFunc(dt);
+                            MessageBox.Show("生成成功！！！！");
+
+                        }
+                    }
+                }
+                else 
+                {
+                    foreach (TreeNode childnode in node.Nodes)
+                    {
+                        if (childnode.Checked)
+                        {
+
+                            tabName = childnode.Text;
+                            DataTable dt = CreateHelper.GetVSyscolumns(sql_connectstring.Replace("Provider=sqloledb;", ""), childnode.Text);
+                            dt.TableName = tabName;
+                            CreateFunc(dt);
+                            MessageBox.Show("生成成功！！！！");
+
+                        }
+                    }
+                }
+
+                //  FindCheckNode(node, listNodes);
+            }
+            this.Close();
+        }
+
+
 
     }
 }

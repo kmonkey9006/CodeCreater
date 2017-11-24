@@ -46,6 +46,7 @@
             this.IsQuery = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.HiddenInput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_dataContext = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,21 +57,26 @@
             this.txt_Namespace = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.单表生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.模版生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.批量生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(0, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 782);
+            this.groupBox1.Size = new System.Drawing.Size(200, 757);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -79,7 +85,7 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 17);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(194, 762);
+            this.treeView1.Size = new System.Drawing.Size(194, 737);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
@@ -88,9 +94,9 @@
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(200, 0);
+            this.groupBox2.Location = new System.Drawing.Point(200, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1244, 782);
+            this.groupBox2.Size = new System.Drawing.Size(1244, 757);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "数据展示区域";
@@ -101,7 +107,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 17);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1238, 704);
+            this.groupBox4.Size = new System.Drawing.Size(1238, 679);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             // 
@@ -127,7 +133,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1232, 684);
+            this.dataGridView1.Size = new System.Drawing.Size(1232, 659);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -232,11 +238,21 @@
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(3, 721);
+            this.groupBox3.Location = new System.Drawing.Point(3, 696);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1238, 58);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1026, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(68, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "批量";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
             // 
@@ -326,15 +342,46 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button3
+            // menuStrip1
             // 
-            this.button3.Location = new System.Drawing.Point(1026, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(68, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "批量";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.生成ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1444, 25);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 生成ToolStripMenuItem
+            // 
+            this.生成ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.单表生成ToolStripMenuItem,
+            this.模版生成ToolStripMenuItem,
+            this.批量生成ToolStripMenuItem});
+            this.生成ToolStripMenuItem.Name = "生成ToolStripMenuItem";
+            this.生成ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.生成ToolStripMenuItem.Text = "生成";
+            // 
+            // 单表生成ToolStripMenuItem
+            // 
+            this.单表生成ToolStripMenuItem.Name = "单表生成ToolStripMenuItem";
+            this.单表生成ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.单表生成ToolStripMenuItem.Text = "单表生成";
+            this.单表生成ToolStripMenuItem.Click += new System.EventHandler(this.单表生成ToolStripMenuItem_Click);
+            // 
+            // 模版生成ToolStripMenuItem
+            // 
+            this.模版生成ToolStripMenuItem.Name = "模版生成ToolStripMenuItem";
+            this.模版生成ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.模版生成ToolStripMenuItem.Text = "模版生成";
+            this.模版生成ToolStripMenuItem.Click += new System.EventHandler(this.模版生成ToolStripMenuItem_Click);
+            // 
+            // 批量生成ToolStripMenuItem
+            // 
+            this.批量生成ToolStripMenuItem.Name = "批量生成ToolStripMenuItem";
+            this.批量生成ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.批量生成ToolStripMenuItem.Text = "批量生成";
+            this.批量生成ToolStripMenuItem.Click += new System.EventHandler(this.批量生成ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -343,6 +390,8 @@
             this.ClientSize = new System.Drawing.Size(1444, 782);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -352,7 +401,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -387,6 +439,11 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsQuery;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HiddenInput;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 生成ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 单表生成ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 模版生成ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 批量生成ToolStripMenuItem;
     }
 }
 
