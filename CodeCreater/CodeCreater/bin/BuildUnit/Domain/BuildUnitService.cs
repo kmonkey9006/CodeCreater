@@ -37,17 +37,9 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
             return dbContext.BuildUnit.Delete(id);
         }
 
-        public List<BuildUnitModel> GetAllPage(int index, int size,Guid? lineID,Guid? segmentID, DateTime? sd, DateTime? ed, out int total)
+        public List<BuildUnitModel> GetAllPage(int index, int size, out int total)
         {
             string sql = @"select * from BuildUnit  where 1=1 ";
-            if (lineID.HasValue)
-                sql += string.Format(" and LineID = '{0}'", lineID.Value);
-            if (segmentID.HasValue)
-                sql += string.Format(" and SegmentID = '{0}'", segmentID.Value);
-            if (!Convert.ToDateTime(sd).IsEmpty())
-                sql += string.Format(" And CreateTime>'{0}'", Convert.ToDateTime(sd).ToString("yyyy-MM-dd 0:00"));
-            if (!Convert.ToDateTime(ed).IsEmpty())
-                sql += string.Format(" And CreateTime<'{0}'", Convert.ToDateTime(ed).ToString("yyyy-MM-dd 23:59:59"));
 
             try
             {

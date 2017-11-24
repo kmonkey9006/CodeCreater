@@ -97,7 +97,7 @@ namespace CodeCreater
             string prijectName = txt_prijoct.Text;
             string dataContext = txt_dataContext.Text;
             new CreateModels(dt, Namespace).setModel();
-            new CreateDomain(dt, Namespace, dataContext).setDomainInterface();
+            // new CreateDomain(dt, Namespace, dataContext).setDomainInterface();
             new CreateDomain(dt, Namespace, dataContext).setDomainService();
             new CreateControllers(dt, Namespace, prijectName, functionName).setController();
             new CreateControllers(functionName, dt.TableName).Setmapping();

@@ -32,8 +32,6 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
         {
             BuildUnitModel model = new BuildUnitModel();
 
-            model.CreateTime = DateTime.Now;
-
             if (id.HasValue)
                 model = buildUnit.Get(id.Value);
             return PartialView(model);
@@ -86,12 +84,12 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
             int re = buildUnit.Delete(id);
             return Json(new { success = re > 0 });
         }
-        public ActionResult ListPage([DataSourceRequest]  DataSourceRequest dsRequest,Guid? lineID,Guid? segmentID)
+        public ActionResult ListPage([DataSourceRequest]  DataSourceRequest dsRequest,)
         {
             var size = dsRequest.PageSize;
             var index = dsRequest.Page;
             var total = 0;
-            var modelWrapper = buildUnit.GetAllPage(index, size, lineID,segmentID, out total);
+            var modelWrapper = buildUnit.GetAllPage(index, size,  out total);
             var rs = new DataSourceResult();
             rs.Data = modelWrapper;
             rs.Total = total;

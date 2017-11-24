@@ -9,6 +9,6 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
         int Add(BuildUnitModel model);
         int Edit(BuildUnitModel model);
         int Delete(Guid id);
-        List<BuildUnitModel> GetAllPage(int index, int size, Guid? lineID,Guid? segmentID, DateTime? sd, DateTime? ed, out int total);
+        List<BuildUnitModel> GetAllPage(int index, int size,  out int total);
     }
 }

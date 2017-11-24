@@ -408,7 +408,8 @@ namespace CodeCreater
             sb.AppendLine("                    success: function (re) {");
             sb.AppendLine("                        if (re.success) {");
             sb.AppendLine("                            alert(\"删除成功!\");");
-            sb.AppendLine("                            $(\"#{0}Data\").data(\"kendoGrid\").dataSource.read();");
+            sb.AppendFormat("                            $(\"#{0}Data\").data(\"kendoGrid\").dataSource.read();",dtName);
+            sb.AppendLine();
             sb.AppendLine("                        } else {");
             sb.AppendLine("                            alert(\"删除失败!\");");
             sb.AppendLine("                        }");

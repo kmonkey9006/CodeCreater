@@ -72,6 +72,7 @@ namespace CodeCreater
             sb.AppendLine();
             sb.AppendLine("{");
             sb.AppendLine();
+            sb.AppendLine(GetDomainInterface().ToString());
             sb.AppendFormat("    public class {0}Service : I{0}Service", dtName);
             sb.AppendLine();
             sb.AppendLine("    {");
@@ -142,13 +143,13 @@ namespace CodeCreater
         public StringBuilder GetDomainInterface()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("using System;");
-            sb.AppendLine("using System.Collections.Generic;");
-            sb.AppendFormat("using {0}.Models;", strNamespace);
-            sb.AppendLine();
-            sb.AppendFormat("namespace {0}.Domain", strNamespace);
-            sb.AppendLine();
-            sb.AppendLine("{");
+            //sb.AppendLine("using System;");
+            //sb.AppendLine("using System.Collections.Generic;");
+            //sb.AppendFormat("using {0}.Models;", strNamespace);
+            //sb.AppendLine();
+            //sb.AppendFormat("namespace {0}.Domain", strNamespace);
+            //sb.AppendLine();
+            //sb.AppendLine("{");
             sb.AppendFormat("    public interface I{0}Service", dtName);
             sb.AppendLine();
             sb.AppendLine("    {");
@@ -165,13 +166,13 @@ namespace CodeCreater
             sb.AppendFormat("        List<{0}> GetAllPage(int index, int size, {1} out int total);", modeName, checkString.ToString());
             sb.AppendLine();
             sb.AppendLine("    }");
-            sb.AppendLine("}");
+            //sb.AppendLine("}");
             //File.WriteAllText(CreateHelper.getPath(dtName) + "//Domain" + "//I" + dtName + "Service.cs", sb.ToString());
             //return false;
             return sb;
 
         }
-       
+
 
     }
 }
