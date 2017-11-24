@@ -48,8 +48,9 @@ namespace CodeCreater
                         string l = dr["Length"].ToString();
                         if (dr["IsNull"].ToString().ToLower() == "true")
                         {
-                            sb.AppendLine("        [[Required(ErrorMessage = \"{0}不能为空\")] ");
-                            sb.Append("MinimumLength = 1, ErrorMessage =\"{0}长度在{2}-{1}之间\")]");
+                            sb.AppendLine();
+                            sb.AppendLine("        [Required(ErrorMessage = \"{0}不能为空\")] ");
+                            sb.AppendLine("        [StringLength(4000,MinimumLength = 1, ErrorMessage =\"{0}长度在{2}-{1}之间\")]");
                             sb.AppendLine();
                         }
                         else
