@@ -80,7 +80,7 @@ namespace CodeCreater
                     checkString.AppendFormat("    至:  @Html.Kendo().DatePicker().Name(\"ed\")");
                     researchData.AppendLine("              $(\"#sd\").val(\"\");");
                     researchData.AppendLine("              $(\"#ed\").val(\"\");");
-                    searchData.AppendFormat("var {0} = $(\"#{0}\").val();", _columuName);
+                    searchData.AppendFormat("              var {0} = $(\"#{0}\").val();", _columuName);
                     searchData.AppendLine();
                     searchDataStr.AppendFormat("{0}: {0},", _columuName);
 
@@ -93,6 +93,7 @@ namespace CodeCreater
                     checkString.AppendLine();
                     checkString.AppendLine("    )");
                     researchData.AppendFormat("            $(\"#{0}\").data(\"kendoDropDownList\").value(null);", _columuName);
+                    researchData.AppendLine();
                     searchData.AppendFormat("var {0} = $(\"#{0}\").val();", _columuName);
                     searchData.AppendLine();
                     searchDataStr.AppendFormat("{0}: {0},", _columuName);
@@ -308,7 +309,7 @@ namespace CodeCreater
             sb.AppendLine("            }");
             sb.AppendLine("            @if (admin || del)");
             sb.AppendLine("            {");
-            sb.AppendFormat("                @Html.CommandButton(\"删除\", \"s-i-del\", \"{0}Delete('${{{1}}}')", dtName, pkname);
+            sb.AppendFormat("                @Html.CommandButton(\"删除\", \"s-i-del\", \"{0}Delete('${{{1}}}')\")", dtName, pkname);
             sb.AppendLine();
             sb.AppendLine("            }");
             sb.AppendFormat("            @Html.CommandButton(\"查看\", \"s-i-check\", \"{0}Query('${{{1}}}')\")", dtName, pkname);
@@ -335,6 +336,7 @@ namespace CodeCreater
             sb.AppendLine("</div>");
             sb.AppendLine("@section Scripts{");
             sb.AppendLine("    <script src=\"@Url.Content(\"~/KScripts/jquery.kendo.extend.js\")\"></script>");
+            sb.AppendLine("    <script>");
             sb.AppendLine("            function researchdata() {");
             sb.AppendLine(researchData.ToString());
             sb.AppendLine("        }");
@@ -377,6 +379,7 @@ namespace CodeCreater
             sb.AppendLine("            kendo.showDialog({");
             sb.AppendFormat("                id: \"{0}ADD\",", dtName);
             sb.AppendFormat("                title: id ? \"{0}编辑\" : \"{0}新增\",", functionNme);
+            sb.AppendLine();
             sb.AppendLine("                content: {");
             sb.AppendFormat("                    url: \"/{0}/{0}Add\",", dtName);
             sb.AppendLine();
@@ -395,6 +398,7 @@ namespace CodeCreater
             sb.AppendLine("            });");
             sb.AppendLine("        }");
             sb.AppendFormat("        function {0}Delete(id) {{", dtName);
+            sb.AppendLine();
             sb.AppendLine("            if (confirm(\"确认要删除该条整改单吗？\")) {");
             sb.AppendLine("                $.ajax({");
             sb.AppendLine("                    type: \"POST\",");
