@@ -139,7 +139,7 @@ namespace CodeCreater
             File.WriteAllText(CreateHelper.getPath(dtName) + "//Domain" + "//" + dtName + "Service.cs", sb.ToString());
             return false;
         }
-        public bool setDomainInterface()
+        public StringBuilder GetDomainInterface()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("using System;");
@@ -166,8 +166,9 @@ namespace CodeCreater
             sb.AppendLine();
             sb.AppendLine("    }");
             sb.AppendLine("}");
-            File.WriteAllText(CreateHelper.getPath(dtName) + "//Domain" + "//I" + dtName + "Service.cs", sb.ToString());
-            return false;
+            //File.WriteAllText(CreateHelper.getPath(dtName) + "//Domain" + "//I" + dtName + "Service.cs", sb.ToString());
+            //return false;
+            return sb;
 
         }
        

@@ -201,7 +201,7 @@ namespace CodeCreater
             sb.AppendLine("@{");
             sb.AppendFormat("    PlatformContext.ApplicationScreen.Title = \"{0}管理\";", functionNme);
             sb.AppendLine();
-            sb.AppendLine("    Layout = \"~/Views/Shared/KLayouts/_GridViewLayout.cshtml\";");
+            //sb.AppendLine("    Layout = \"~/Views/Shared/KLayouts/_GridViewLayout.cshtml\";");
             sb.AppendFormat("    var admin = User.IsInRole(\"{0}.管理员\");", namesp);
             sb.AppendLine();
             sb.AppendFormat("    var add = User.IsInRole(\"{0}.{1}：添加\");", namesp, functionNme);

@@ -53,7 +53,7 @@ namespace CodeCreater
                             sb.AppendLine("        [StringLength(4000,MinimumLength = 1, ErrorMessage =\"{0}长度在{2}-{1}之间\")]");
                             sb.AppendLine();
                         }
-                        else
+                        else if (dr["IsNull"].ToString().ToLower() != "true" && dr["DataType"].ToString() != "uniqueidentifier")
                         {
                             sb.AppendFormat("        [StringLength({0}, ErrorMessage = \"{1}长度不可超出{0}\")]", l, "{0}");
                             sb.AppendLine();
@@ -79,6 +79,8 @@ namespace CodeCreater
                             string[] daArray = da.Split('|');
                             foreach (string das in daArray)
                             {
+                                if (string.IsNullOrEmpty(das))
+                                    break;
                                 sb.AppendFormat("        [{0}]", das);
                                 sb.AppendLine();
                             }

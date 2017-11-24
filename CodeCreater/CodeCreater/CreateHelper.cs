@@ -105,7 +105,7 @@ namespace CodeCreater
                                     [DisplayName]=isnull(g.[value],''),
                                     [SelectList]='',
                                     [SelectData]='',
-                                    [DefaultVal]=isnull(e.text,'') ,
+                                    [DefaultVal]='' ,
                                     [Regular]='' ,
                                     [IsQuery]='false',
                                     [HiddenInput]='true',
