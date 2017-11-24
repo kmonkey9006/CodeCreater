@@ -48,7 +48,7 @@ namespace CodeCreater
                     checkString.AppendFormat("{0}? {1},", CreateHelper.GetCsType(dataType), _columuName);
 
                 }
-                else if (dr["IsQuery"].ToString().ToLower() == "true" && dataType != "datetime")
+                else if (dr["IsQuery"].ToString().ToLower() == "true" && dataType == "datetime")
                 {
                     query.Append("sd,ed,");
                     checkString.Append(" DateTime? sd, DateTime? ed,");
@@ -222,6 +222,8 @@ namespace CodeCreater
             sb.AppendLine("        {");
             sb.AppendLine("            base.Initialize();");
             sb.AppendFormat("            AutoMapper.Mapper.CreateMap<{0}Model, {0}>();", dtName);
+            sb.AppendLine();
+            sb.AppendFormat("            AutoMapper.Mapper.CreateMap<{0}, {0}Model>();", dtName);
             sb.AppendLine();
             sb.AppendLine("        }");
             sb.AppendFormat(" [RoleName( \"{0}：管理\",\"{0}：添加\", \"{0}：编辑\",\"{0}：查询\", \"{0}：删除\")]", functionNme);
