@@ -1,0 +1,196 @@
+@{
+    PlatformContext.ApplicationScreen.Title = "台帐管理";
+    var admin = User.IsInRole("HiddenTroubleTreatmModule.管理员");
+    var add = User.IsInRole("HiddenTroubleTreatmModule.台帐：添加");
+    var edit = User.IsInRole("HiddenTroubleTreatmModule.台帐：编辑");
+    var del = User.IsInRole("HiddenTroubleTreatmModule.台帐：删除");
+}
+<style>
+    .s-search {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #ffffff;
+        border: 0px;
+    }
+
+    table {
+        width: 100%;
+        border: 1px solid #cccccc;
+    }
+
+    .tabtable {
+        width: 100%;
+    }
+
+    th {
+        background-color: #f9f9f9;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .k-grid td, .k-grid th {
+        border-width: 0px 1px 1px 0px;
+    }
+
+    table th {
+        margin: 0px;
+        padding: 0px;
+        line-height: 30px;
+        text-align: center;
+        border-bottom: 1px solid #cccccc;
+        border-right: 1px solid #cccccc;
+    }
+
+    table td {
+        margin: 0px;
+        padding: 0px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .textright {
+        text-align: right;
+        display: inline-block;
+        float: right;
+    }
+    .textcolor {
+        color: red;
+        font-size: 12px;
+    }
+    .tsuccess {
+        color: #27b605;
+        font-weight: bold;
+    }
+    .twning {
+        color: #ff6a00;
+        font-weight: bold;
+    }
+</style>
+@section ToolsBar{
+    @if (add){
+        @Html.CommandButton("添加", "k-add", "BuildUnitAdd(null)", "btnAdd", true)
+    }
+}
+@section Search{
+
+}
+<div style="margin:auto;">
+    @(
+ Html.Kendo().Grid<RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.Models.BuildUnitModel>()      .Name("BuildUnitData")  .Columns(cols =>
+             {
+                 cols.Bound(col => col.BID).Title("主键ID").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.LineID).Title("线路").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.SegmentID).Title("标点").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.SiteID).Title("工点").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.Money).Title("金额").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.Enclosure).Title("附件").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.RememberTime).Title("计取年月").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.CreateUser).Title("创建人").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.CreateTime).Title("创建时间").Format("{0:yyyy-MM-dd}").Sortable(false).TextAlignCenter();
+                 cols.Bound(col => col.BID).Title("操作").Sortable(false).TextAlignCenter().ClientTemplate(@<text>
+            @if (admin || edit)
+            {
+                @Html.CommandButton("编辑", "s-i-edit", "BuildUnitAdd('${BID}')")
+            }
+            @if (admin || del)
+            {
+                @Html.CommandButton("删除", "s-i-del", "BuildUnitDelete('${BID}')")
+            }
+            @Html.CommandButton("查看", "s-i-check", "BuildUnitQuery('${BID}')")
+                </text>);
+             }).Pageable()
+                                             .DataSource(dataSource => dataSource
+                                             .Ajax()
+                                             .PageSize(20)
+                                             .ServerOperation(true)
+                                             .Events(events =>
+                                             {
+                                             //events.Error("errorHandler");
+                                             })
+                                             .Read(read =>
+                                             {
+                                             read.Action("ListPage", "BuildUnit");
+                                             read.Data("searchdata");
+                                              })
+                                             )
+             )
+</div>
+@section Scripts{
+    <script src="@Url.Content("~/KScripts/jquery.kendo.extend.js")"></script>
+    <script>
+            function researchdata() {
+
+        }
+        function searchdata() {
+
+            return { };
+        }
+        function Search() {
+            $("#BuildUnitData").data("kendoGrid").dataSource.read({ page: 1 });
+            if ($(".k-pager-numbers a").eq(0)) {
+                var page = $(".k-pager-numbers a").eq(0).attr("data-page");
+                if (page != null && page == "1") {
+                    $(".k-pager-numbers a").eq(0).click();
+                }
+            }
+        }
+        function BuildUnitQuery(id) {            kendo.showDialog({
+                id: "{0}Query",
+                title: "{0}信息",
+                content: {
+                    url: "/BuildUnit/BuildUnitQuery",
+                    data: { id: id },
+                    complete: function (data) {
+                        if (!data.success) {
+                            alert("没有查到相应数据，请检查相应数据是否已经删除！")
+                        }
+                    }
+                }
+            })
+        }
+        function BuildUnitAdd(id) {
+            kendo.showDialog({
+                id: "BuildUnitADD",                title: id ? "台帐编辑" : "台帐新增",
+                content: {
+                    url: "/BuildUnit/BuildUnitAdd",
+                    data: { id: id },
+                    complete: function (data) {
+                        if (data.success) {
+                            alert("操作成功！");
+                            $("#BuildUnitData").data("kendoGrid").dataSource.read();
+                        }
+                        else {
+                            alert("操作失败！")
+                        }
+                    }
+                },
+            });
+        }
+        function BuildUnitDelete(id) {
+            if (confirm("确认要删除该条整改单吗？")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/BuildUnit/BuildUnitDelete",
+                    data: { id: id },
+                    success: function (re) {
+                        if (re.success) {
+                            alert("删除成功!");
+                            $("#BuildUnitData").data("kendoGrid").dataSource.read();
+                        } else {
+                            alert("删除失败!");
+                        }
+                    }
+                });
+            }
+        }
+        function DownloadFile(filenames) {
+            kendo.showDialog({
+                title: "下载文档列表",
+                content: {
+                    url: "/Demo/DownLoadFiles",
+                    data: { names: filenames }
+                },
+            })
+        }
+    </script>
+}
