@@ -44,31 +44,34 @@ namespace CodeCreater
                         string dataName = dr["name"].ToString();
                         sb.AppendLine();
                         sb.AppendFormat("        [DisplayName(\"{0}\")]", dr["DisplayName"].ToString());
+                        sb.AppendLine();
                         string l = dr["Length"].ToString();
                         if (dr["IsNull"].ToString().ToLower() == "true")
                         {
-                            sb.AppendLine("        [Required(ErrorMessage = \"{0}不能为空\")] ");
-                            sb.AppendFormat("        [StringLength({0},", l);
+                            sb.AppendLine("        [[Required(ErrorMessage = \"{0}不能为空\")] ");
                             sb.Append("MinimumLength = 1, ErrorMessage =\"{0}长度在{2}-{1}之间\")]");
+                            sb.AppendLine();
                         }
-                        sb.AppendLine();
-                        sb.AppendFormat("        [StringLength({0}, ErrorMessage = \"长度不可超出{0}\")]", l);
-                        sb.AppendLine();
+                        else
+                        {
+                            sb.AppendFormat("        [StringLength({0}, ErrorMessage = \"{1}长度不可超出{0}\")]", l, "{0}");
+                            sb.AppendLine();
+                        }
                         if (dr["HiddenInput"].ToString() == "false" || dt.Rows.IndexOf(dr) == 0)
                             sb.AppendLine("        [HiddenInput(DisplayValue=false)]");
                         if (!string.IsNullOrEmpty(dr["SelectList"].ToString()) && string.IsNullOrEmpty(dr["SelectData"].ToString()))
                         {
-                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post,DataValueField = \"{1}\",DataTextField = \"Name\",DataType = \"DropDownList\")]", dataName, dr["SelectList"].ToString());
+                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post,DataValueField = \"{1}\",DataTextField = \"Name\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(), dataName);
                             sb.AppendLine();
                         }
                         if (!string.IsNullOrEmpty(dr["SelectData"].ToString()) && !string.IsNullOrEmpty(dr["SelectList"].ToString()))
                         {
                             string[] SelectData = dr["SelectData"].ToString().Split(':');
-                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post,DataValueField = \"{1}\",DataTextField = \"Name\",Data ={2}\"function(){{return {{ {3}: $(\"\"#{4}\"\").val() }}; }}\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(),dataName,"@", SelectData[0], SelectData[1]);
+                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post,DataValueField = \"{1}\",DataTextField = \"Name\",Data ={2}\"function(){{return {{ {3}: $(\"\"#{4}\"\").val() }}; }}\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(), dataName, "@", SelectData[0], SelectData[1]);
                             sb.AppendLine();
                         }
                         if (dr["DataType"].ToString() == "datetime")
-                            sb.AppendLine("[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = \"{{0:yyyy-MM-dd}}\")]");
+                            sb.AppendLine("        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = \"{{0:yyyy-MM-dd}}\")]");
                         string da = dr["DefaultAttribute"].ToString();
                         if (!string.IsNullOrEmpty(da))
                         {
