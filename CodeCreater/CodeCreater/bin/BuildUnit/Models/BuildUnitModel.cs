@@ -11,12 +11,12 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
     {
 
         [DisplayName("主键ID")]
+        [Required(ErrorMessage = "{0}不能为空")] 
+
         [HiddenInput(DisplayValue=false)]
         public Guid BID { get; set; }
 
         [DisplayName("线路")]
-        [Required(ErrorMessage = "{0}不能为空")] 
-        [StringLength(16,MinimumLength = 1, ErrorMessage ="{0}长度在{2}-{1}之间")]
         [SelectList("/Inspect/GetLine?all=0",
              HttpVerbs.Post,
              DataValueField = "LineID",
@@ -49,8 +49,6 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
         public Guid SiteID { get; set; }
 
         [DisplayName("金额")]
-        [Required(ErrorMessage = "{0}不能为空")] 
-        [StringLength(18,MinimumLength = 1, ErrorMessage ="{0}长度在{2}-{1}之间")]
         public Decimal Money { get; set; }
 
         [DisplayName("附件")]
@@ -66,7 +64,6 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
         public string CreateUser { get; set; }
 
         [DisplayName("创建时间")]
-        [StringLength(23, ErrorMessage = "{0}长度不可超出23")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> CreateTime { get; set; }
         }

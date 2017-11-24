@@ -90,9 +90,11 @@ namespace CodeCreater
 
 
         /// <summary>  
-        /// 获取某一个表的所有字段  
+        /// 从系统表中获取视图详情信息 
+        /// by 王延领
+        /// date:2017-11-20
         /// </summary>  
-        /// <param name="object_id">表名</param>  
+        /// <param name="object_id">试图名</param>  
         /// <returns></returns>  
         public static DataTable GetVSyscolumns(string conString, string object_id)
         {
@@ -120,11 +122,6 @@ namespace CodeCreater
                                     left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id   
                                     left join sys.extended_properties f on d.id=f.major_id and f.minor_id=0");
                 strSql.Append("where d.name='" + object_id + "' order by a.id,a.colorder");
-
-
-
-
-
                 SqlConnection cn = new SqlConnection(conString);
                 if (cn.State != ConnectionState.Open)
                     cn.Open();
@@ -138,7 +135,9 @@ namespace CodeCreater
         }
 
         /// <summary>  
-        /// 获取某一个表的所有字段  
+        /// 从系统表中获取表详情信息
+        /// by 王延领
+        /// date:2017-11-20
         /// </summary>  
         /// <param name="object_id">表名</param>  
         /// <returns></returns>  
@@ -168,11 +167,6 @@ namespace CodeCreater
                                     left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id   
                                     left join sys.extended_properties f on d.id=f.major_id and f.minor_id=0");
                 strSql.Append("where d.name='" + object_id + "' order by a.id,a.colorder");
-
-
-
-
-
                 SqlConnection cn = new SqlConnection(conString);
                 if (cn.State != ConnectionState.Open)
                     cn.Open();
@@ -184,6 +178,13 @@ namespace CodeCreater
             }
             return dt;
         }
+        /// <summary>
+        /// 生成文件地址
+        /// by 王延领
+        /// date:2017-11-20
+        /// </summary>
+        /// <param name="Name">表名</param>
+        /// <returns></returns>
         public static string getPath(string Name)
         {
             string location = System.Windows.Forms.Application.StartupPath;

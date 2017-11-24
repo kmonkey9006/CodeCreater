@@ -8,6 +8,11 @@ using System.IO;
 
 namespace CodeCreater
 {
+    /// <summary>
+    /// 常见业务层代码
+    /// by 王延领
+    /// date:2017-11-20
+    /// </summary>
     public class CreateControllers
     {
         public string strNamespace = " RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmXMLModules";
@@ -25,27 +30,39 @@ namespace CodeCreater
             functionNme = _functionNme;
             dtName = _dtName;
         }
+        /// <summary>
+        /// 
+        /// by 王延领
+        /// date:2017-11-20
+        /// </summary>
+        /// <param name="_dt"></param>
+        /// <param name="_strNamespace">命名空间</param>
+        /// <param name="_projectName">项目模块名称</param>
+        /// <param name="_functionNme">功能名称</param>
         public CreateControllers(DataTable _dt, string _strNamespace, string _projectName, string _functionNme)
         {
             strNamespace = _strNamespace;
             projectName = _projectName;
             functionNme = _functionNme;
             dt = _dt;
+            //表名
             dtName = dt.TableName;
+            //表名（首字母小写）
             _dtName = dtName.Substring(0, 1).ToLower() + dtName.Substring(1);
             modelName = dtName + "Model";
 
-
+            #region 遍历datatable  可读性有点低哈，为了实现设计代码的时候就没做太多设计
             foreach (DataRow dr in dt.Rows)
             {
                 string defaultVal = dr["DefaultVal"].ToString();
                 string dataType = dr["DataType"].ToString();
+                #region 查询条件
                 if (dr["IsQuery"].ToString().ToLower() == "true" && dataType != "datetime")
                 {
                     string columuName = dr["name"].ToString();
                     string _columuName = columuName.Substring(0, 1).ToLower() + columuName.Substring(1);
                     query.AppendFormat("{0},", _columuName);
-                    checkString.AppendFormat("{0}? {1},", CreateHelper.GetCsType(dataType), _columuName);
+                    checkString.AppendFormat("{0} {1},", CreateHelper.GetCsType(dataType), _columuName);
 
                 }
                 else if (dr["IsQuery"].ToString().ToLower() == "true" && dataType == "datetime")
@@ -53,8 +70,8 @@ namespace CodeCreater
                     query.Append("sd,ed,");
                     checkString.Append(" DateTime? sd, DateTime? ed,");
                 }
-
-
+                #endregion
+                #region 初始化
                 if (!string.IsNullOrEmpty(defaultVal))
                 {
                     string name = dr["name"].ToString();
@@ -66,12 +83,15 @@ namespace CodeCreater
                     }
                     defaultValue.AppendLine();
                 }
+                #endregion
             }
+            #endregion
         }
         public bool setController()
         {
 
             StringBuilder sb = new StringBuilder();
+            #region controller生成模版（没有提供的T4模版，暂时这样处理吧）
             if (dt != null && dt.Rows.Count > 0)
             {
                 sb.AppendLine("using System;");
@@ -205,12 +225,14 @@ namespace CodeCreater
                 sb.AppendLine("    }");
                 sb.AppendLine("}");
             }
+            #endregion
             File.WriteAllText(CreateHelper.getPath(dtName) + "//Controllers" + "//" + dtName + "Controller.cs", sb.ToString());
 
             return false;
         }
         public bool Setmapping()
         {
+            #region 映射 ，依赖注入，权限自行复制粘贴不是使用类
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("        protected override void RegisterBuilder(ContainerBuilderWrapper builder)");
             sb.AppendLine("        {");
@@ -227,6 +249,7 @@ namespace CodeCreater
             sb.AppendLine();
             sb.AppendLine("        }");
             sb.AppendFormat(" [RoleName( \"{0}：管理\",\"{0}：添加\", \"{0}：编辑\",\"{0}：查询\", \"{0}：删除\")]", functionNme);
+            #endregion
             File.WriteAllText(CreateHelper.getPath(dtName) + "//" + dtName + "Context.cs", sb.ToString());
             return false;
         }

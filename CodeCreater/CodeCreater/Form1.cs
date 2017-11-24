@@ -253,7 +253,7 @@ namespace CodeCreater
                             DataTable dt = CreateHelper.GetSyscolumns(sql_connectstring.Replace("Provider=sqloledb;", ""), childnode.Text);
                             dt.TableName = tabName;
                             CreateFunc(dt);
-                            MessageBox.Show("生成成功！！！！");
+                          
 
                         }
                     }
@@ -269,7 +269,7 @@ namespace CodeCreater
                             DataTable dt = CreateHelper.GetVSyscolumns(sql_connectstring.Replace("Provider=sqloledb;", ""), childnode.Text);
                             dt.TableName = tabName;
                             CreateFunc(dt);
-                            MessageBox.Show("生成成功！！！！");
+                         
 
                         }
                     }
@@ -277,7 +277,7 @@ namespace CodeCreater
 
                 //  FindCheckNode(node, listNodes);
             }
-            this.Close();
+            MessageBox.Show("生成成功！！！！");
         }
 
 

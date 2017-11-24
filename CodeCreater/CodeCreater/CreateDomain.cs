@@ -8,6 +8,11 @@ using System.IO;
 
 namespace CodeCreater
 {
+    /// <summary>
+    /// 常见业务层代码
+    /// by 王延领
+    /// date:2017-11-20
+    /// </summary>
     public class CreateDomain
     {
         DataTable dt = new DataTable();
@@ -20,6 +25,13 @@ namespace CodeCreater
         public CreateDomain()
         {
         }
+        /// <summary>
+        /// by 王延领
+        /// date:2017-11-20
+        /// </summary>
+        /// <param name="_dt"></param>
+        /// <param name="_strNamespace">命名空间</param>
+        /// <param name="_dataContext">数据库操作上线文</param>
         public CreateDomain(DataTable _dt, string _strNamespace, string _dataContext)
         {
             strNamespace = _strNamespace;
@@ -27,7 +39,7 @@ namespace CodeCreater
             dt = _dt;
             dtName = dt.TableName;
             modeName = dtName + "Model";
-
+            #region 生成的查询条件
             foreach (DataRow dr in dt.Rows)
             {
 
@@ -36,7 +48,7 @@ namespace CodeCreater
                 {
                     string columuName = dr["name"].ToString();
                     string _columuName = columuName.Substring(0, 1).ToLower() + columuName.Substring(1);
-                    checkString.AppendFormat("{0}? {1},", CreateHelper.GetCsType(dataType), _columuName);
+                    checkString.AppendFormat("{0} {1},", CreateHelper.GetCsType(dataType), _columuName);
                     query.AppendFormat("            if ({0}.HasValue)", _columuName);
                     query.AppendLine();
                     query.AppendFormat("                sql += string.Format(\" and {0} = '{1}'\", {2}.Value);", columuName, "{0}", _columuName);
@@ -55,10 +67,12 @@ namespace CodeCreater
                     query.AppendLine();
 
                 }
+            #endregion
             }
         }
         public bool setDomainService()
         {
+            #region 业务服务处理层模版
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("using System;");
             sb.AppendLine("using System.Linq;");
@@ -137,6 +151,7 @@ namespace CodeCreater
             sb.AppendLine("        }");
             sb.AppendLine("    }");
             sb.AppendLine("}");
+            #endregion
             File.WriteAllText(CreateHelper.getPath(dtName) + "//Domain" + "//" + dtName + "Service.cs", sb.ToString());
             return false;
         }
@@ -150,6 +165,7 @@ namespace CodeCreater
             //sb.AppendFormat("namespace {0}.Domain", strNamespace);
             //sb.AppendLine();
             //sb.AppendLine("{");
+            #region 接口层模版
             sb.AppendFormat("    public interface I{0}Service", dtName);
             sb.AppendLine();
             sb.AppendLine("    {");
@@ -166,6 +182,7 @@ namespace CodeCreater
             sb.AppendFormat("        List<{0}> GetAllPage(int index, int size, {1} out int total);", modeName, checkString.ToString());
             sb.AppendLine();
             sb.AppendLine("    }");
+            #endregion
             //sb.AppendLine("}");
             //File.WriteAllText(CreateHelper.getPath(dtName) + "//Domain" + "//I" + dtName + "Service.cs", sb.ToString());
             //return false;

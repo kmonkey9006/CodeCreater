@@ -46,6 +46,7 @@ namespace CodeCreater
                 string selectData = dr["SelectData"].ToString();
                 string columuName = dr["name"].ToString();
                 string _columuName = columuName.Substring(0, 1).ToLower() + columuName.Substring(1);
+                #region grid信息
                 if (dataType == "datetime")
                     listGrid.AppendFormat("                 cols.Bound(col => col.{0}).Title(\"{1}\").Format(\"{{0:yyyy-MM-dd}}\").Sortable(false).TextAlignCenter();", columuName, displayName);
                 else if (defaultVal.Contains("Upload"))
@@ -72,8 +73,8 @@ namespace CodeCreater
                     listGrid.AppendFormat("                 cols.Bound(col => col.{0}).Title(\"{1}\").Sortable(false).TextAlignCenter();", columuName, displayName);
                     listGrid.AppendLine();
                 }
-
-
+                #endregion
+                #region 查询条件
                 if (dr["IsQuery"].ToString().ToLower() == "true" && dataType == "datetime")
                 {
                     checkString.AppendFormat("    {0}： @Html.Kendo().DatePicker().Name(\"sd\")", displayName);
@@ -120,30 +121,35 @@ namespace CodeCreater
                     searchData.AppendLine();
                     searchDataStr.AppendFormat("{0}: {0},", _columuName);
                 }
-
-                if (!string.IsNullOrEmpty(defaultVal))
-                {
-                    string name = dr["name"].ToString();
-                    if (defaultVal == "当前时间")
-                        defaultValue.AppendFormat("            model.{0} = DateTime.Now;", name);
-                    else if (defaultVal == "登入人")
-                    {
-                        defaultValue.AppendFormat("            model.{0} = Platform.Core.PlatformContext.CurrentUser.UserName;", name);
-                    }
-                    defaultValue.AppendLine();
-                }
+                #endregion
+                #region 初始化数据
+                //if (!string.IsNullOrEmpty(defaultVal))
+                //{
+                //    string name = dr["name"].ToString();
+                //    if (defaultVal == "当前时间")
+                //        defaultValue.AppendFormat("            model.{0} = DateTime.Now;", name);
+                //    else if (defaultVal == "登入人")
+                //    {
+                //        defaultValue.AppendFormat("            model.{0} = Platform.Core.PlatformContext.CurrentUser.UserName;", name);
+                //    }
+                //    defaultValue.AppendLine();
+                //}
+                #endregion
             }
         }
         public void setViewAdd()
         {
             StringBuilder sb = new StringBuilder();
+            #region 模版
             sb.AppendFormat("{0}{{", "@");
             sb.AppendLine();
             sb.AppendFormat("    PlatformContext.ApplicationScreen.Title = \"{0}管理\";", functionNme);
             sb.AppendLine();
-            sb.AppendFormat("    Layout = \"~/Views/Shared/KLayouts/_GridViewLayout.cshtml\";");
-            sb.AppendLine();
+            //sb.AppendFormat("    Layout = \"~/Views/Shared/KLayouts/_GridViewLayout.cshtml\";");
+            //sb.AppendLine();
             sb.AppendLine("}");
+            #endregion
+            #region 样式
             sb.AppendLine("<style>");
             sb.AppendLine("    .inline-label1 {");
             sb.AppendLine("        width: 45%;");
@@ -179,6 +185,7 @@ namespace CodeCreater
             sb.AppendLine("        padding: 0 0 0 0;");
             sb.AppendLine("    }");
             sb.AppendLine("</style>");
+            #endregion
             sb.AppendLine("<script type=\"text/javascript\">");
             sb.AppendLine("    $(function () {");
             sb.AppendLine("        if ($(\"#BID\").val().length == 0) {");
@@ -198,10 +205,11 @@ namespace CodeCreater
         {
             string namesp = strNamespace.Substring(strNamespace.LastIndexOf('.') + 1).TrimEnd('s');
             StringBuilder sb = new StringBuilder();
+            #region 模版权限
             sb.AppendLine("@{");
             sb.AppendFormat("    PlatformContext.ApplicationScreen.Title = \"{0}管理\";", functionNme);
             sb.AppendLine();
-            //sb.AppendLine("    Layout = \"~/Views/Shared/KLayouts/_GridViewLayout.cshtml\";");
+            sb.AppendLine("    Layout = \"~/Views/Shared/KLayouts/_GridViewLayout.cshtml\";");
             sb.AppendFormat("    var admin = User.IsInRole(\"{0}.管理员\");", namesp);
             sb.AppendLine();
             sb.AppendFormat("    var add = User.IsInRole(\"{0}.{1}：添加\");", namesp, functionNme);
@@ -211,9 +219,9 @@ namespace CodeCreater
             sb.AppendFormat("    var del = User.IsInRole(\"{0}.{1}：删除\");", namesp, functionNme);
             sb.AppendLine();
             sb.AppendLine("}");
+            #endregion
 
-
-
+            #region 样式
             sb.AppendLine("<style>");
             sb.AppendLine("    .s-search {");
             sb.AppendLine("        padding-top: 5px;");
@@ -275,8 +283,8 @@ namespace CodeCreater
             sb.AppendLine("        font-weight: bold;");
             sb.AppendLine("    }");
             sb.AppendLine("</style>");
-
-
+            #endregion
+            #region 工具栏
             sb.AppendFormat("{0}section ToolsBar{{", "@");
             sb.AppendLine();
             sb.AppendFormat("    {0}if (add){{", "@");
@@ -285,11 +293,14 @@ namespace CodeCreater
             sb.AppendLine();
             sb.AppendLine("    }");
             sb.AppendLine("}");
+            #endregion
+            #region 查询
             sb.AppendFormat("{0}section Search{{", "@");
             sb.AppendLine();
             sb.AppendLine(checkString.ToString());
             sb.AppendLine("}");
-
+            #endregion
+            #region grid
             sb.AppendLine("<div style=\"margin:auto;\">");
             sb.AppendFormat("    {0}(", "@");
             sb.AppendLine();
@@ -334,6 +345,8 @@ namespace CodeCreater
             sb.AppendLine("                                             )");
             sb.AppendLine("             )");
             sb.AppendLine("</div>");
+            #endregion
+            #region 脚本
             sb.AppendLine("@section Scripts{");
             sb.AppendLine("    <script src=\"@Url.Content(\"~/KScripts/jquery.kendo.extend.js\")\"></script>");
             sb.AppendLine("    <script>");
@@ -408,7 +421,7 @@ namespace CodeCreater
             sb.AppendLine("                    success: function (re) {");
             sb.AppendLine("                        if (re.success) {");
             sb.AppendLine("                            alert(\"删除成功!\");");
-            sb.AppendFormat("                            $(\"#{0}Data\").data(\"kendoGrid\").dataSource.read();",dtName);
+            sb.AppendFormat("                            $(\"#{0}Data\").data(\"kendoGrid\").dataSource.read();", dtName);
             sb.AppendLine();
             sb.AppendLine("                        } else {");
             sb.AppendLine("                            alert(\"删除失败!\");");
@@ -428,6 +441,7 @@ namespace CodeCreater
             sb.AppendLine("        }");
             sb.AppendLine("    </script>");
             sb.AppendLine("}");
+            #endregion
             File.WriteAllText(CreateHelper.getPath(dtName) + "//Views" + "//" + dtName + "List.cshtml", sb.ToString());
 
         }
