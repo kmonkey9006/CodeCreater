@@ -86,6 +86,57 @@ namespace CodeCreater
             return true;
         }
 
+
+
+
+        /// <summary>  
+        /// 获取某一个表的所有字段  
+        /// </summary>  
+        /// <param name="object_id">表名</param>  
+        /// <returns></returns>  
+        public static DataTable GetVSyscolumns(string conString, string object_id)
+        {
+            DataTable dt = new DataTable();
+            StringBuilder strSql = new StringBuilder();
+            if (!string.IsNullOrEmpty(object_id) && object_id != "未选择")
+            {
+                strSql.Append(@"SELECT  
+                             DISTINCT   a.id,  a.name, a.colorder ,
+                                    [DataType]=b.name,  
+                                    [Length]=COLUMNPROPERTY(a.id,a.name,'PRECISION'),  
+                                    [IsNull]=case when a.isnullable=1 then 'true' else 'false' end,  
+                                    [DisplayName]=isnull(g.[value],''),
+                                    [SelectList]='',
+                                    [SelectData]='',
+                                    [DefaultVal]='' ,
+                                    [Regular]='' ,
+                                    [IsQuery]='false',
+                                    [HiddenInput]='false',
+                                    [DefaultAttribute]=''
+                                    FROM syscolumns a  
+                                    left join systypes b on a.xusertype=b.xusertype  
+                                    inner join sysobjects d on a.id=d.id  and d.xtype='V' and  d.name<>'dtproperties'  
+                                    left join syscomments e on a.cdefault=e.id  
+                                    left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id   
+                                    left join sys.extended_properties f on d.id=f.major_id and f.minor_id=0");
+                strSql.Append("where d.name='" + object_id + "' order by a.id,a.colorder");
+
+
+
+
+
+                SqlConnection cn = new SqlConnection(conString);
+                if (cn.State != ConnectionState.Open)
+                    cn.Open();
+                SqlCommand cmd = new SqlCommand(strSql.ToString(), cn);
+                SqlDataAdapter sdap = new SqlDataAdapter();
+                sdap.SelectCommand = cmd;
+                sdap.Fill(dt);
+                cn.Close();
+            }
+            return dt;
+        }
+
         /// <summary>  
         /// 获取某一个表的所有字段  
         /// </summary>  
@@ -138,7 +189,7 @@ namespace CodeCreater
             string location = System.Windows.Forms.Application.StartupPath;
             location = location.Substring(0, location.LastIndexOf('\\') + 1);
             string path = location + Name;
-            if (!Directory.Exists(path+ "//Models"))
+            if (!Directory.Exists(path + "//Models"))
                 Directory.CreateDirectory(path + "//Models");
             if (!Directory.Exists(path + "//Domain"))
                 Directory.CreateDirectory(path + "//Domain");

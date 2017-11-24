@@ -74,7 +74,10 @@ namespace CodeCreater
             }
             else if (e.Node.Parent != null && e.Node.Parent.Text == "试图")
             {
-                tabType = "view";
+                tabName = e.Node.Text;
+                DataTable dt = CreateHelper.GetVSyscolumns(sql_connectstring.Replace("Provider=sqloledb;", ""), e.Node.Text);
+                this.dataGridView1.DataSource = dt;//数据源  
+                this.dataGridView1.AutoGenerateColumns = false;//不自动  
             }
         }
 

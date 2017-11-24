@@ -58,7 +58,7 @@ namespace CodeCreater
                             sb.AppendFormat("        [StringLength({0}, ErrorMessage = \"{1}长度不可超出{0}\")]", l, "{0}");
                             sb.AppendLine();
                         }
-                        if (dr["HiddenInput"].ToString() == "false" || dt.Rows.IndexOf(dr) == 0)
+                        if (dr["HiddenInput"].ToString().ToLower() != "true" || dt.Rows.IndexOf(dr) == 0)
                             sb.AppendLine("        [HiddenInput(DisplayValue=false)]");
                         if (!string.IsNullOrEmpty(dr["SelectList"].ToString()) && string.IsNullOrEmpty(dr["SelectData"].ToString()))
                         {

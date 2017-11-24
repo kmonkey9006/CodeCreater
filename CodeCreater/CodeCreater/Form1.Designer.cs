@@ -33,6 +33,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_dataContext = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_Function = new System.Windows.Forms.TextBox();
+            this.txt_prijoct = new System.Windows.Forms.TextBox();
+            this.txt_Namespace = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,17 +56,6 @@
             this.Regular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsQuery = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.HiddenInput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_Function = new System.Windows.Forms.TextBox();
-            this.txt_prijoct = new System.Windows.Forms.TextBox();
-            this.txt_Namespace = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_dataContext = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -130,93 +130,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // name
-            // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "名称";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // DataType
-            // 
-            this.DataType.DataPropertyName = "DataType";
-            this.DataType.HeaderText = "类型";
-            this.DataType.Name = "DataType";
-            this.DataType.ReadOnly = true;
-            // 
-            // length
-            // 
-            this.length.DataPropertyName = "Length";
-            this.length.HeaderText = "长度";
-            this.length.Name = "length";
-            this.length.ReadOnly = true;
-            // 
-            // IsNull
-            // 
-            this.IsNull.DataPropertyName = "IsNull";
-            this.IsNull.HeaderText = "是否可以为空";
-            this.IsNull.Name = "IsNull";
-            this.IsNull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsNull.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // DisplayName
-            // 
-            this.DisplayName.DataPropertyName = "DisplayName";
-            this.DisplayName.HeaderText = "显示名称";
-            this.DisplayName.Name = "DisplayName";
-            // 
-            // DefaultAttribute
-            // 
-            this.DefaultAttribute.DataPropertyName = "DefaultAttribute";
-            this.DefaultAttribute.HeaderText = "默认特性";
-            this.DefaultAttribute.Name = "DefaultAttribute";
-            this.DefaultAttribute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // SelectList
-            // 
-            this.SelectList.DataPropertyName = "SelectList";
-            this.SelectList.HeaderText = "自定义关联地址";
-            this.SelectList.Name = "SelectList";
-            // 
-            // SelectData
-            // 
-            this.SelectData.DataPropertyName = "SelectData";
-            this.SelectData.HeaderText = "关联参数";
-            this.SelectData.Name = "SelectData";
-            // 
-            // DefaultVal
-            // 
-            this.DefaultVal.DataPropertyName = "DefaultVal";
-            this.DefaultVal.HeaderText = "默认值";
-            this.DefaultVal.Items.AddRange(new object[] {
-            "当前时间",
-            "登录人"});
-            this.DefaultVal.Name = "DefaultVal";
-            this.DefaultVal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DefaultVal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Regular
-            // 
-            this.Regular.DataPropertyName = "Regular";
-            this.Regular.HeaderText = "正则表达式";
-            this.Regular.Name = "Regular";
-            // 
-            // IsQuery
-            // 
-            this.IsQuery.DataPropertyName = "IsQuery";
-            this.IsQuery.HeaderText = "是否为查询条件";
-            this.IsQuery.Name = "IsQuery";
-            this.IsQuery.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsQuery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // HiddenInput
-            // 
-            this.HiddenInput.DataPropertyName = "HiddenInput";
-            this.HiddenInput.HeaderText = "是否显示";
-            this.HiddenInput.Name = "HiddenInput";
-            this.HiddenInput.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HiddenInput.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label4);
@@ -235,6 +148,23 @@
             this.groupBox3.Size = new System.Drawing.Size(1238, 58);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(337, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "上下文";
+            // 
+            // txt_dataContext
+            // 
+            this.txt_dataContext.Location = new System.Drawing.Point(384, 19);
+            this.txt_dataContext.Name = "txt_dataContext";
+            this.txt_dataContext.Size = new System.Drawing.Size(160, 21);
+            this.txt_dataContext.TabIndex = 8;
+            this.txt_dataContext.Text = "HiddenTroubleTreatmDataContext";
             // 
             // label3
             // 
@@ -306,22 +236,92 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label4
+            // name
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(337, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "上下文";
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "名称";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
             // 
-            // txt_dataContext
+            // DataType
             // 
-            this.txt_dataContext.Location = new System.Drawing.Point(384, 19);
-            this.txt_dataContext.Name = "txt_dataContext";
-            this.txt_dataContext.Size = new System.Drawing.Size(160, 21);
-            this.txt_dataContext.TabIndex = 8;
-            this.txt_dataContext.Text = "HiddenTroubleTreatmDataContext";
+            this.DataType.DataPropertyName = "DataType";
+            this.DataType.HeaderText = "类型";
+            this.DataType.Name = "DataType";
+            this.DataType.ReadOnly = true;
+            // 
+            // length
+            // 
+            this.length.DataPropertyName = "Length";
+            this.length.HeaderText = "长度";
+            this.length.Name = "length";
+            this.length.ReadOnly = true;
+            // 
+            // IsNull
+            // 
+            this.IsNull.DataPropertyName = "IsNull";
+            this.IsNull.HeaderText = "是否非空";
+            this.IsNull.Name = "IsNull";
+            this.IsNull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsNull.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // DisplayName
+            // 
+            this.DisplayName.DataPropertyName = "DisplayName";
+            this.DisplayName.HeaderText = "显示名称";
+            this.DisplayName.Name = "DisplayName";
+            // 
+            // DefaultAttribute
+            // 
+            this.DefaultAttribute.DataPropertyName = "DefaultAttribute";
+            this.DefaultAttribute.HeaderText = "默认特性";
+            this.DefaultAttribute.Name = "DefaultAttribute";
+            this.DefaultAttribute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // SelectList
+            // 
+            this.SelectList.DataPropertyName = "SelectList";
+            this.SelectList.HeaderText = "自定义关联地址";
+            this.SelectList.Name = "SelectList";
+            // 
+            // SelectData
+            // 
+            this.SelectData.DataPropertyName = "SelectData";
+            this.SelectData.HeaderText = "关联参数";
+            this.SelectData.Name = "SelectData";
+            // 
+            // DefaultVal
+            // 
+            this.DefaultVal.DataPropertyName = "DefaultVal";
+            this.DefaultVal.HeaderText = "默认值";
+            this.DefaultVal.Items.AddRange(new object[] {
+            "当前时间",
+            "登录人"});
+            this.DefaultVal.Name = "DefaultVal";
+            this.DefaultVal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DefaultVal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Regular
+            // 
+            this.Regular.DataPropertyName = "Regular";
+            this.Regular.HeaderText = "正则表达式";
+            this.Regular.Name = "Regular";
+            // 
+            // IsQuery
+            // 
+            this.IsQuery.DataPropertyName = "IsQuery";
+            this.IsQuery.HeaderText = "是否为查询条件";
+            this.IsQuery.Name = "IsQuery";
+            this.IsQuery.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsQuery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HiddenInput
+            // 
+            this.HiddenInput.DataPropertyName = "HiddenInput";
+            this.HiddenInput.HeaderText = "是否显示";
+            this.HiddenInput.Name = "HiddenInput";
+            this.HiddenInput.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HiddenInput.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Form1
             // 
@@ -353,6 +353,14 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_Function;
+        private System.Windows.Forms.TextBox txt_prijoct;
+        private System.Windows.Forms.TextBox txt_Namespace;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt_dataContext;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataType;
         private System.Windows.Forms.DataGridViewTextBoxColumn length;
@@ -365,14 +373,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Regular;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsQuery;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HiddenInput;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_Function;
-        private System.Windows.Forms.TextBox txt_prijoct;
-        private System.Windows.Forms.TextBox txt_Namespace;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_dataContext;
     }
 }
 
