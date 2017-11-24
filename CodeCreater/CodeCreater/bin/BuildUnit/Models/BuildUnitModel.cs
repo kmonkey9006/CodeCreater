@@ -18,6 +18,7 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
         [Required(ErrorMessage = "{0}不能为空")] 
         [StringLength(4000,MinimumLength = 1, ErrorMessage ="{0}长度在{2}-{1}之间")]
 
+        [HiddenInput(DisplayValue=false)]
         public Guid LineID { get; set; }
         [DisplayName("标点")]
 
@@ -30,6 +31,7 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
         [Required(ErrorMessage = "{0}不能为空")] 
         [StringLength(4000,MinimumLength = 1, ErrorMessage ="{0}长度在{2}-{1}之间")]
 
+        [HiddenInput(DisplayValue=false)]
         public Guid SiteID { get; set; }
         [DisplayName("金额")]
 
@@ -42,6 +44,7 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
         [Required(ErrorMessage = "{0}不能为空")] 
         [StringLength(4000,MinimumLength = 1, ErrorMessage ="{0}长度在{2}-{1}之间")]
 
+        [HiddenInput(DisplayValue=false)]
         public string Enclosure { get; set; }
         [DisplayName("计取年月")]
 
@@ -54,6 +57,7 @@ namespace RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules.
         [Required(ErrorMessage = "{0}不能为空")] 
         [StringLength(4000,MinimumLength = 1, ErrorMessage ="{0}长度在{2}-{1}之间")]
 
+        [HiddenInput(DisplayValue=false)]
         public string CreateUser { get; set; }
         [DisplayName("创建时间")]
 

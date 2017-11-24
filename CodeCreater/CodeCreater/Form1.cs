@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,8 +91,10 @@ namespace CodeCreater
                 dt.TableName = tabName;
                 jsonHelper.WriteFile(CreateHelper.getPath(tabName), tabName + ".js", jsonHelper.ToJson(dt, true));
             }
-            CreateFunc(dt);
-            MessageBox.Show("生成成功！！！！");
+            if (CreateFunc(dt))
+                MessageBox.Show("生成成功！！！！");
+            else
+                MessageBox.Show("生成失败！！！！");
         }
         bool CreateFunc(DataTable dt)
         {
@@ -121,6 +124,51 @@ namespace CodeCreater
                 {
                     this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //初始化一个OpenFileDialog类
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "(*.js)|*.js";
+            //判断用户是否正确的选择了文件
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = fileDialog.FileName;
+                string jsonStr = jsonHelper.ReadFile(path);
+                DataTable dt = jsonHelper.JsonToDataSet(jsonStr).Tables[0];
+                this.dataGridView1.DataSource = dt;//数据源  
+                this.dataGridView1.AutoGenerateColumns = false;//不自动  
+
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
+            dialog.Description = "请选择模版文件夹进行批量生产";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string folderFullName = dialog.SelectedPath;
+                if (!string.IsNullOrEmpty(folderFullName))
+                {
+                    //遍历文件夹
+                    string[] fileNames = Directory.GetFiles(folderFullName, "*.js");
+                    foreach (string file in fileNames)
+                    {
+                        DataTable dt = jsonHelper.JsonToDataSet(file).Tables[0];
+                        bool flag = CreateFunc(dt);
+                        if (flag)
+                            MessageBox.Show("生成成功！！！！");
+                        else
+                            MessageBox.Show("生成失败！！！！");
+
+                    }
+
+
+                }
+
             }
         }
 

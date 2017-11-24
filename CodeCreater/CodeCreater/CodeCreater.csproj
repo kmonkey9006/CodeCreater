@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="CreateHelper.cs" />
+    <Compile Include="JavaScriptSerializer.cs" />
+    <Compile Include="JavaScriptSerializer_2.cs" />
     <Compile Include="jsonHelper.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>

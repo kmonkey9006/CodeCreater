@@ -33,17 +33,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_dataContext = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_Function = new System.Windows.Forms.TextBox();
-            this.txt_prijoct = new System.Windows.Forms.TextBox();
-            this.txt_Namespace = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +45,18 @@
             this.Regular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsQuery = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.HiddenInput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_dataContext = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_Function = new System.Windows.Forms.TextBox();
+            this.txt_prijoct = new System.Windows.Forms.TextBox();
+            this.txt_Namespace = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -129,112 +130,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1232, 684);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.txt_dataContext);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txt_Function);
-            this.groupBox3.Controls.Add(this.txt_prijoct);
-            this.groupBox3.Controls.Add(this.txt_Namespace);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(3, 721);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1238, 58);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(337, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "上下文";
-            // 
-            // txt_dataContext
-            // 
-            this.txt_dataContext.Location = new System.Drawing.Point(384, 19);
-            this.txt_dataContext.Name = "txt_dataContext";
-            this.txt_dataContext.Size = new System.Drawing.Size(160, 21);
-            this.txt_dataContext.TabIndex = 8;
-            this.txt_dataContext.Text = "HiddenTroubleTreatmDataContext";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "命名空间";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(809, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "功能名称";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(550, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "模块名称";
-            // 
-            // txt_Function
-            // 
-            this.txt_Function.Location = new System.Drawing.Point(868, 18);
-            this.txt_Function.Name = "txt_Function";
-            this.txt_Function.Size = new System.Drawing.Size(156, 21);
-            this.txt_Function.TabIndex = 4;
-            this.txt_Function.Text = "台帐";
-            // 
-            // txt_prijoct
-            // 
-            this.txt_prijoct.Location = new System.Drawing.Point(609, 16);
-            this.txt_prijoct.Name = "txt_prijoct";
-            this.txt_prijoct.Size = new System.Drawing.Size(184, 21);
-            this.txt_prijoct.TabIndex = 3;
-            this.txt_prijoct.Text = "隐患排查与治理";
-            // 
-            // txt_Namespace
-            // 
-            this.txt_Namespace.Location = new System.Drawing.Point(65, 19);
-            this.txt_Namespace.Name = "txt_Namespace";
-            this.txt_Namespace.Size = new System.Drawing.Size(254, 21);
-            this.txt_Namespace.TabIndex = 2;
-            this.txt_Namespace.Text = "RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1071, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "模版";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1154, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "生成";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // name
             // 
@@ -323,6 +218,124 @@
             this.HiddenInput.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HiddenInput.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.txt_dataContext);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txt_Function);
+            this.groupBox3.Controls.Add(this.txt_prijoct);
+            this.groupBox3.Controls.Add(this.txt_Namespace);
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox3.Location = new System.Drawing.Point(3, 721);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1238, 58);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(337, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "上下文";
+            // 
+            // txt_dataContext
+            // 
+            this.txt_dataContext.Location = new System.Drawing.Point(384, 19);
+            this.txt_dataContext.Name = "txt_dataContext";
+            this.txt_dataContext.Size = new System.Drawing.Size(160, 21);
+            this.txt_dataContext.TabIndex = 8;
+            this.txt_dataContext.Text = "HiddenTroubleTreatmDataContext";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "命名空间";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(809, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "功能名称";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(550, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "模块名称";
+            // 
+            // txt_Function
+            // 
+            this.txt_Function.Location = new System.Drawing.Point(868, 18);
+            this.txt_Function.Name = "txt_Function";
+            this.txt_Function.Size = new System.Drawing.Size(156, 21);
+            this.txt_Function.TabIndex = 4;
+            this.txt_Function.Text = "台帐";
+            // 
+            // txt_prijoct
+            // 
+            this.txt_prijoct.Location = new System.Drawing.Point(609, 16);
+            this.txt_prijoct.Name = "txt_prijoct";
+            this.txt_prijoct.Size = new System.Drawing.Size(184, 21);
+            this.txt_prijoct.TabIndex = 3;
+            this.txt_prijoct.Text = "隐患排查与治理";
+            // 
+            // txt_Namespace
+            // 
+            this.txt_Namespace.Location = new System.Drawing.Point(65, 19);
+            this.txt_Namespace.Name = "txt_Namespace";
+            this.txt_Namespace.Size = new System.Drawing.Size(254, 21);
+            this.txt_Namespace.TabIndex = 2;
+            this.txt_Namespace.Text = "RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1094, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(66, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "模版";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1163, 16);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "生成";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1026, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(68, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "批量";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -373,6 +386,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Regular;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsQuery;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HiddenInput;
+        private System.Windows.Forms.Button button3;
     }
 }
 
