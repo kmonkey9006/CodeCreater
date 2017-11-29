@@ -77,8 +77,8 @@ namespace CodeCreater
             sb.AppendLine("using System;");
             sb.AppendLine("using System.Linq;");
             sb.AppendLine("using System.Collections.Generic;");
-            sb.AppendLine("using RTSafe.HiddenTroubleTreatm.BusinessModules.DataAccess;");
-            sb.AppendLine("using RTSafe.HiddenTroubleTreatm.BusinessModules.DataAccess.Entities;");
+            sb.AppendLine("using SafetySupervision.SuperviseDataAccess;");
+            sb.AppendLine("using SafetySupervision.SuperviseDataAccess.Entities;");
             sb.AppendLine();
             sb.AppendFormat("using {0}.Models;", strNamespace);
             sb.AppendLine();

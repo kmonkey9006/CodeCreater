@@ -15,7 +15,7 @@ namespace CodeCreater
     /// </summary>
     public class CreateControllers
     {
-        public string strNamespace = " RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmXMLModules";
+        public string strNamespace = "SafetySupervision.SuperviseModules.SPCMModules";
         public string projectName = "项目名称";
         public string functionNme = "功能名称";
         string dtName = string.Empty;
@@ -142,7 +142,8 @@ namespace CodeCreater
                 sb.AppendLine();
                 sb.AppendLine(defaultValue.ToString());
                 sb.AppendLine("            if (id.HasValue)");
-                sb.AppendLine("                model = buildUnit.Get(id.Value);");
+                sb.AppendFormat("                model = {0}.Get(id.Value);",_dtName);
+                sb.AppendLine();
                 sb.AppendLine("            return PartialView(model);");
                 sb.AppendLine("        }");
                 sb.AppendLine("        [HttpPost]");

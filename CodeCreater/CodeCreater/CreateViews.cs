@@ -371,9 +371,12 @@ namespace CodeCreater
             sb.AppendLine("            }");
             sb.AppendLine("        }");
             sb.AppendFormat("        function {0}Query(id) {{", dtName);
+            sb.AppendLine();
             sb.AppendLine("            kendo.showDialog({");
-            sb.AppendLine("                id: \"{0}Query\",");
-            sb.AppendLine("                title: \"{0}信息\",");
+            sb.AppendFormat("                id: \"{0}Query\",",dtName);
+            sb.AppendLine();
+            sb.AppendFormat("                title: \"{0}信息\",",functionNme);
+            sb.AppendLine();
             sb.AppendLine("                content: {");
             sb.AppendFormat("                    url: \"/{0}/{0}Query\",", dtName);
             sb.AppendLine();
@@ -391,6 +394,7 @@ namespace CodeCreater
 
             sb.AppendLine("            kendo.showDialog({");
             sb.AppendFormat("                id: \"{0}ADD\",", dtName);
+            sb.AppendLine();
             sb.AppendFormat("                title: id ? \"{0}编辑\" : \"{0}新增\",", functionNme);
             sb.AppendLine();
             sb.AppendLine("                content: {");
@@ -412,7 +416,7 @@ namespace CodeCreater
             sb.AppendLine("        }");
             sb.AppendFormat("        function {0}Delete(id) {{", dtName);
             sb.AppendLine();
-            sb.AppendLine("            if (confirm(\"确认要删除该条整改单吗？\")) {");
+            sb.AppendLine("            if (confirm(\"确认要删除该条信息吗？\")) {");
             sb.AppendLine("                $.ajax({");
             sb.AppendLine("                    type: \"POST\",");
             sb.AppendFormat("                    url: \"/{0}/{0}Delete\",", dtName);
