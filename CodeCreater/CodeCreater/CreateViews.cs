@@ -188,15 +188,15 @@ namespace CodeCreater
             #endregion
             sb.AppendLine("<script type=\"text/javascript\">");
             sb.AppendLine("    $(function () {");
-            sb.AppendLine("        if ($(\"#BID\").val().length == 0) {");
-            sb.AppendLine("            $(\"#BID\").val(\"00000000-0000-0000-0000-000000000000\");");
+            sb.AppendFormat("        if ($(\"#{0}\").val().length == 0) {", dt.Rows[0][0].ToString());
+            sb.AppendLine();
+            sb.AppendFormat("            $(\"#{0}\").val(\"00000000-0000-0000-0000-000000000000\");", dt.Rows[0][0].ToString());
+            sb.AppendLine();
             sb.AppendLine("        }");
             sb.AppendLine("    })");
             sb.AppendLine("</script>");
             sb.AppendLine("@Html.AjaxEditorForm(width: 800, isDialog: false)");
-            sb.AppendLine("        }");
-            sb.AppendLine("    }");
-            sb.AppendLine("}");
+
             File.WriteAllText(CreateHelper.getPath(dtName) + "//Views" + "//" + dtName + "Add.cshtml", sb.ToString());
             File.WriteAllText(CreateHelper.getPath(dtName) + "//Views" + "//" + dtName + "Query.cshtml", sb.ToString());
         }
@@ -373,9 +373,9 @@ namespace CodeCreater
             sb.AppendFormat("        function {0}Query(id) {{", dtName);
             sb.AppendLine();
             sb.AppendLine("            kendo.showDialog({");
-            sb.AppendFormat("                id: \"{0}Query\",",dtName);
+            sb.AppendFormat("                id: \"{0}Query\",", dtName);
             sb.AppendLine();
-            sb.AppendFormat("                title: \"{0}信息\",",functionNme);
+            sb.AppendFormat("                title: \"{0}信息\",", functionNme);
             sb.AppendLine();
             sb.AppendLine("                content: {");
             sb.AppendFormat("                    url: \"/{0}/{0}Query\",", dtName);
