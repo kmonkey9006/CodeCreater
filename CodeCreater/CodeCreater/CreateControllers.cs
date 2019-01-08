@@ -125,7 +125,7 @@ namespace CodeCreater
                 sb.AppendFormat("            this.{0} = _{0}Service;", _dtName);
                 sb.AppendLine();
                 sb.AppendLine("        }");
-                sb.AppendFormat("        [ActionDescription(\"{0}管理\",\" /{1}/{1}List)\")]", functionNme, dtName);
+                sb.AppendFormat("        [ActionDescription(\"{0}管理\",\" /{1}/{1}List)\"]", functionNme, dtName);
                 sb.AppendLine();
                 sb.AppendFormat("        [RoleName(\"管理员\",\"{0}：查询\")]", functionNme);
                 sb.AppendLine();

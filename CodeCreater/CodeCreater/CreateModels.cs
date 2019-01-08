@@ -108,7 +108,7 @@ namespace CodeCreater
                         else if (!string.IsNullOrEmpty(dr["SelectData"].ToString()) && !string.IsNullOrEmpty(dr["SelectList"].ToString()))
                         {
                             string[] SelectData = dr["SelectData"].ToString().Split(':');
-                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post, CascadeFrom = \"{4}\"  DataValueField = \"{1}\",DataTextField = \"Name\",Data ={2}\"function(){{return {{ {3}: $(\"\"#{4}\"\").val() }}; }}\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(), name, "@", SelectData[0], SelectData[1]);
+                            sb.AppendFormat("        [SelectList(\"{0}\",HttpVerbs.Post, CascadeFrom = \"{4}\",  DataValueField = \"{1}\",DataTextField = \"Name\",Data ={2}\"function(){{return {{ {3}: $(\"\"#{4}\"\").val() }}; }}\",DataType = \"DropDownList\")]", dr["SelectList"].ToString(), name, "@", SelectData[0], SelectData[1]);
                             sb.AppendLine();
                         }
                         if (dr["DataType"].ToString() == "datetime")

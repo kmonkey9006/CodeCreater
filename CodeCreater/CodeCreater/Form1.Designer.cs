@@ -33,6 +33,18 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefaultAttribute = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefaultVal = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Regular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsQuery = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HiddenInput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,18 +62,6 @@
             this.单表生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.模版生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.批量生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefaultAttribute = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefaultVal = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Regular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsQuery = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.HiddenInput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -136,165 +136,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1232, 659);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.txt_dataContext);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txt_Function);
-            this.groupBox3.Controls.Add(this.txt_prijoct);
-            this.groupBox3.Controls.Add(this.txt_Namespace);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(3, 696);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1238, 58);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1026, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(68, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "批量";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(337, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "上下文";
-            // 
-            // txt_dataContext
-            // 
-            this.txt_dataContext.Location = new System.Drawing.Point(384, 19);
-            this.txt_dataContext.Name = "txt_dataContext";
-            this.txt_dataContext.Size = new System.Drawing.Size(160, 21);
-            this.txt_dataContext.TabIndex = 8;
-            this.txt_dataContext.Text = "HiddenTroubleTreatmDataContext";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "命名空间";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(809, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "功能名称";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(550, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "模块名称";
-            // 
-            // txt_Function
-            // 
-            this.txt_Function.Location = new System.Drawing.Point(868, 18);
-            this.txt_Function.Name = "txt_Function";
-            this.txt_Function.Size = new System.Drawing.Size(156, 21);
-            this.txt_Function.TabIndex = 4;
-            this.txt_Function.Text = "台帐";
-            // 
-            // txt_prijoct
-            // 
-            this.txt_prijoct.Location = new System.Drawing.Point(609, 16);
-            this.txt_prijoct.Name = "txt_prijoct";
-            this.txt_prijoct.Size = new System.Drawing.Size(184, 21);
-            this.txt_prijoct.TabIndex = 3;
-            this.txt_prijoct.Text = "隐患排查与治理";
-            // 
-            // txt_Namespace
-            // 
-            this.txt_Namespace.Location = new System.Drawing.Point(65, 19);
-            this.txt_Namespace.Name = "txt_Namespace";
-            this.txt_Namespace.Size = new System.Drawing.Size(254, 21);
-            this.txt_Namespace.TabIndex = 2;
-            this.txt_Namespace.Text = "RTSafe.HiddenTroubleTreatm.BusinessModules.HiddenTroubleTreatmModules";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1094, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "模版";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1163, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "生成";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.生成ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1444, 25);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 生成ToolStripMenuItem
-            // 
-            this.生成ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.单表生成ToolStripMenuItem,
-            this.模版生成ToolStripMenuItem,
-            this.批量生成ToolStripMenuItem});
-            this.生成ToolStripMenuItem.Name = "生成ToolStripMenuItem";
-            this.生成ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.生成ToolStripMenuItem.Text = "生成";
-            // 
-            // 单表生成ToolStripMenuItem
-            // 
-            this.单表生成ToolStripMenuItem.Name = "单表生成ToolStripMenuItem";
-            this.单表生成ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.单表生成ToolStripMenuItem.Text = "单表生成";
-            this.单表生成ToolStripMenuItem.Click += new System.EventHandler(this.单表生成ToolStripMenuItem_Click);
-            // 
-            // 模版生成ToolStripMenuItem
-            // 
-            this.模版生成ToolStripMenuItem.Name = "模版生成ToolStripMenuItem";
-            this.模版生成ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.模版生成ToolStripMenuItem.Text = "模版生成";
-            this.模版生成ToolStripMenuItem.Click += new System.EventHandler(this.模版生成ToolStripMenuItem_Click);
-            // 
-            // 批量生成ToolStripMenuItem
-            // 
-            this.批量生成ToolStripMenuItem.Name = "批量生成ToolStripMenuItem";
-            this.批量生成ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.批量生成ToolStripMenuItem.Text = "批量生成";
-            this.批量生成ToolStripMenuItem.Click += new System.EventHandler(this.批量生成ToolStripMenuItem_Click);
             // 
             // name
             // 
@@ -388,6 +229,165 @@
             this.HiddenInput.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HiddenInput.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.HiddenInput.TrueValue = "true";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.txt_dataContext);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txt_Function);
+            this.groupBox3.Controls.Add(this.txt_prijoct);
+            this.groupBox3.Controls.Add(this.txt_Namespace);
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox3.Location = new System.Drawing.Point(3, 696);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1238, 58);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1026, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(68, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "批量";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(337, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "上下文";
+            // 
+            // txt_dataContext
+            // 
+            this.txt_dataContext.Location = new System.Drawing.Point(384, 19);
+            this.txt_dataContext.Name = "txt_dataContext";
+            this.txt_dataContext.Size = new System.Drawing.Size(160, 21);
+            this.txt_dataContext.TabIndex = 8;
+            this.txt_dataContext.Text = "SafetySupervisionDataContext";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "命名空间";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(809, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "功能名称";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(550, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "模块名称";
+            // 
+            // txt_Function
+            // 
+            this.txt_Function.Location = new System.Drawing.Point(868, 18);
+            this.txt_Function.Name = "txt_Function";
+            this.txt_Function.Size = new System.Drawing.Size(156, 21);
+            this.txt_Function.TabIndex = 4;
+            this.txt_Function.Text = "台帐";
+            // 
+            // txt_prijoct
+            // 
+            this.txt_prijoct.Location = new System.Drawing.Point(609, 16);
+            this.txt_prijoct.Name = "txt_prijoct";
+            this.txt_prijoct.Size = new System.Drawing.Size(184, 21);
+            this.txt_prijoct.TabIndex = 3;
+            this.txt_prijoct.Text = "安全生产条件管理";
+            // 
+            // txt_Namespace
+            // 
+            this.txt_Namespace.Location = new System.Drawing.Point(65, 19);
+            this.txt_Namespace.Name = "txt_Namespace";
+            this.txt_Namespace.Size = new System.Drawing.Size(254, 21);
+            this.txt_Namespace.TabIndex = 2;
+            this.txt_Namespace.Text = "SafetySupervision.SuperviseModules.SPCMModules";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1094, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(66, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "模版";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1163, 16);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "生成";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.生成ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1444, 25);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 生成ToolStripMenuItem
+            // 
+            this.生成ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.单表生成ToolStripMenuItem,
+            this.模版生成ToolStripMenuItem,
+            this.批量生成ToolStripMenuItem});
+            this.生成ToolStripMenuItem.Name = "生成ToolStripMenuItem";
+            this.生成ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.生成ToolStripMenuItem.Text = "生成";
+            // 
+            // 单表生成ToolStripMenuItem
+            // 
+            this.单表生成ToolStripMenuItem.Name = "单表生成ToolStripMenuItem";
+            this.单表生成ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.单表生成ToolStripMenuItem.Text = "单表生成";
+            this.单表生成ToolStripMenuItem.Click += new System.EventHandler(this.单表生成ToolStripMenuItem_Click);
+            // 
+            // 模版生成ToolStripMenuItem
+            // 
+            this.模版生成ToolStripMenuItem.Name = "模版生成ToolStripMenuItem";
+            this.模版生成ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.模版生成ToolStripMenuItem.Text = "模版生成";
+            this.模版生成ToolStripMenuItem.Click += new System.EventHandler(this.模版生成ToolStripMenuItem_Click);
+            // 
+            // 批量生成ToolStripMenuItem
+            // 
+            this.批量生成ToolStripMenuItem.Name = "批量生成ToolStripMenuItem";
+            this.批量生成ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.批量生成ToolStripMenuItem.Text = "批量生成";
+            this.批量生成ToolStripMenuItem.Click += new System.EventHandler(this.批量生成ToolStripMenuItem_Click);
             // 
             // Form1
             // 

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmb_dbtype = new System.Windows.Forms.ComboBox();
             this.tb_database = new System.Windows.Forms.TextBox();
             this.tb_pass = new System.Windows.Forms.TextBox();
             this.tb_username = new System.Windows.Forms.TextBox();
@@ -39,6 +37,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmb_dbtype = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -63,35 +63,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "数据库类型：";
-            // 
-            // cmb_dbtype
-            // 
-            this.cmb_dbtype.FormattingEnabled = true;
-            this.cmb_dbtype.Items.AddRange(new object[] {
-            "SQL SERVER",
-            "ORACLE",
-            "DB2"});
-            this.cmb_dbtype.Location = new System.Drawing.Point(108, 34);
-            this.cmb_dbtype.Name = "cmb_dbtype";
-            this.cmb_dbtype.Size = new System.Drawing.Size(156, 20);
-            this.cmb_dbtype.TabIndex = 2;
-            this.cmb_dbtype.Text = "SQL SERVER";
-            // 
             // tb_database
             // 
             this.tb_database.Location = new System.Drawing.Point(108, 130);
             this.tb_database.Name = "tb_database";
             this.tb_database.Size = new System.Drawing.Size(156, 21);
             this.tb_database.TabIndex = 15;
-            this.tb_database.Text = "Hidden1";
+            this.tb_database.Text = "nbaj_test";
             // 
             // tb_pass
             // 
@@ -100,6 +78,7 @@
             this.tb_pass.PasswordChar = '*';
             this.tb_pass.Size = new System.Drawing.Size(156, 21);
             this.tb_pass.TabIndex = 14;
+            this.tb_pass.Text = "123456";
             // 
             // tb_username
             // 
@@ -107,7 +86,7 @@
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(156, 21);
             this.tb_username.TabIndex = 13;
-            this.tb_username.Text = "sa";
+            this.tb_username.Text = "yhpc";
             // 
             // tb_server
             // 
@@ -115,7 +94,7 @@
             this.tb_server.Name = "tb_server";
             this.tb_server.Size = new System.Drawing.Size(156, 21);
             this.tb_server.TabIndex = 12;
-            this.tb_server.Text = "127.0.0.1";
+            this.tb_server.Text = "192.168.90.33";
             // 
             // label5
             // 
@@ -152,6 +131,28 @@
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 16;
             this.label2.Text = "服 务器 名：";
+            // 
+            // cmb_dbtype
+            // 
+            this.cmb_dbtype.FormattingEnabled = true;
+            this.cmb_dbtype.Items.AddRange(new object[] {
+            "SQL SERVER",
+            "ORACLE",
+            "DB2"});
+            this.cmb_dbtype.Location = new System.Drawing.Point(108, 34);
+            this.cmb_dbtype.Name = "cmb_dbtype";
+            this.cmb_dbtype.Size = new System.Drawing.Size(156, 20);
+            this.cmb_dbtype.TabIndex = 2;
+            this.cmb_dbtype.Text = "SQL SERVER";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "数据库类型：";
             // 
             // button1
             // 

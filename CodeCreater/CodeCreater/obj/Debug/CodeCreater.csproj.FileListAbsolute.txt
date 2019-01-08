@@ -17,4 +17,3 @@ E:\GITHUB\Files\CodeCreater\CodeCreater\obj\Debug\CodeCreater.Form1.resources
 E:\GITHUB\Files\CodeCreater\CodeCreater\obj\Debug\CodeCreater.login.resources
 E:\GITHUB\Files\CodeCreater\CodeCreater\obj\Debug\CodeCreater.Properties.Resources.resources
 E:\GITHUB\Files\CodeCreater\CodeCreater\obj\Debug\CodeCreater.csproj.GenerateResource.Cache
-E:\GITHUB\Files\CodeCreater\CodeCreater\obj\Debug\CodeCreater.csprojResolveAssemblyReference.cache

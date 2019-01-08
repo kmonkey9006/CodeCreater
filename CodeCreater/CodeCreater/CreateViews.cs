@@ -188,7 +188,7 @@ namespace CodeCreater
             #endregion
             sb.AppendLine("<script type=\"text/javascript\">");
             sb.AppendLine("    $(function () {");
-            sb.AppendFormat("        if ($(\"#{0}\").val().length == 0) {", dt.Rows[0][0].ToString());
+            sb.AppendFormat("        if ($(\"#{0}\").val().length == 0) {{", dt.Rows[0][0].ToString());
             sb.AppendLine();
             sb.AppendFormat("            $(\"#{0}\").val(\"00000000-0000-0000-0000-000000000000\");", dt.Rows[0][0].ToString());
             sb.AppendLine();
@@ -287,7 +287,7 @@ namespace CodeCreater
             #region 工具栏
             sb.AppendFormat("{0}section ToolsBar{{", "@");
             sb.AppendLine();
-            sb.AppendFormat("    {0}if (add){{", "@");
+            sb.AppendFormat("    {0}if (admin||add){{", "@");
             sb.AppendLine();
             sb.AppendFormat("        {0}Html.CommandButton(\"添加\", \"k-add\", \"{1}Add(null)\", \"btnAdd\", true)", "@", dtName);
             sb.AppendLine();
